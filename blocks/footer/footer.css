@@ -1,20 +1,223 @@
-footer {
-  background-color: var(--light-color);
-  font-size: var(--body-font-size-xs);
+/* MD Anderson Footer */
+footer .footer-wrapper {
+  font-family: var(--body-font-family);
 }
 
-footer .footer > div {
-  margin: auto;
-  max-width: 1200px;
-  padding: 40px 24px 24px;
+/* Newsletter Band */
+.footer-newsletter-band {
+  background-color: #000;
+  color: #fff;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
 }
 
-footer .footer p {
+.footer-newsletter-heading {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.footer-newsletter-form {
+  display: flex;
+  gap: 8px;
+  flex: 1;
+  align-items: center;
+}
+
+.footer-newsletter-form input {
+  padding: 8px 12px;
+  border: 1px solid #555;
+  background: #222;
+  color: #fff;
+  font-size: 13px;
+  flex: 1;
+  min-width: 120px;
+}
+
+.footer-newsletter-form input::placeholder {
+  color: #999;
+}
+
+.footer-newsletter-form button {
+  padding: 8px 16px;
+  background: #c00;
+  color: #fff;
+  border: none;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.footer-newsletter-form button:hover {
+  background: #a00;
+}
+
+.footer-social-icons,
+.footer-podcast-icons {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 12px;
+}
+
+.footer-social-icons a,
+.footer-podcast-icons a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+.footer-social-icons a:hover,
+.footer-podcast-icons a:hover {
+  opacity: 1;
+  color: #c00;
+}
+
+/* Links Band */
+.footer-links-band {
+  background-color: #333;
+  color: #fff;
+  padding: 40px 24px;
+}
+
+.footer-logo {
+  display: block;
+  margin-bottom: 24px;
+}
+
+.footer-logo img {
+  height: 40px;
+  width: auto;
+}
+
+.footer-columns {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 32px;
+}
+
+.footer-column-heading {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0 0 12px;
+  color: #ccc;
+}
+
+.footer-column p {
+  margin: 0 0 8px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.footer-column a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.footer-column a:hover {
+  color: #c00;
+  text-decoration: underline;
+}
+
+.footer-column img {
+  max-width: 100px;
+  height: auto;
+  margin-top: 8px;
+}
+
+/* Legal Band */
+.footer-legal-band {
+  background-color: #333;
+  padding: 20px 24px;
+  border-top: 1px solid #555;
+}
+
+.footer-legal-links {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 8px 16px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.footer-legal-links a {
+  color: #aaa;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.footer-legal-links a:hover {
+  text-decoration: underline;
+  color: #fff;
+}
+
+/* Bottom Band */
+.footer-bottom-band {
+  background-color: #000;
+  color: #fff;
+  padding: 40px 24px;
+  text-align: center;
+}
+
+.footer-bottom-logo {
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.footer-bottom-logo img {
+  height: 40px;
+  width: auto;
+}
+
+.footer-mission {
+  font-size: 13px;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto 12px;
+  color: #ccc;
+}
+
+.footer-copyright {
+  font-size: 12px;
+  color: #999;
   margin: 0;
 }
 
-@media (width >= 900px) {
-  footer .footer > div {
-    padding: 40px 32px 24px;
+/* Mobile */
+@media (width <= 1024px) {
+  .footer-newsletter-band {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-newsletter-form {
+    flex-wrap: wrap;
+  }
+
+  .footer-columns {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width <= 600px) {
+  .footer-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-social-icons,
+  .footer-podcast-icons {
+    flex-wrap: wrap;
   }
 }

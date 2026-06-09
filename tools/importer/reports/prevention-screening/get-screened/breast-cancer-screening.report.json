@@ -1,0 +1,21 @@
+{
+  "status": "success",
+  "url": "https://www.mdanderson.org/prevention-screening/get-screened/breast-cancer-screening.html",
+  "path": "prevention-screening/get-screened/breast-cancer-screening",
+  "timestamp": "2026-06-08T21:36:16.542Z",
+  "title": "Mammograms & Breast Cancer Screening | UT MD Anderson",
+  "template": "screening-page",
+  "blocks": [
+    "cards",
+    "cards",
+    "cards",
+    "cards",
+    "cards",
+    "cards",
+    "cards",
+    "cards",
+    "cards",
+    "embed",
+    "embed"
+  ]
+}

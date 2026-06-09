@@ -1,0 +1,126 @@
+{
+  "metadata": {
+    "projectType": "da"
+  },
+  "templates": [
+    {
+      "name": "screening-page",
+      "urls": [
+        "https://www.mdanderson.org/prevention-screening/get-screened/breast-cancer-screening.html"
+      ],
+      "description": "Cancer screening information page with prevention guidelines and screening recommendations",
+      "blocks": [
+        {
+          "name": "cards",
+          "instances": [
+            ".promo.promo-simple.promo-icon-red",
+            ".blog-summary.small",
+            ".podcast-component",
+            ".fis-articles",
+            "section.highlight .table.table-3col"
+          ]
+        },
+        {
+          "name": "embed",
+          "instances": [
+            ".media-player.media-single-small"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "section-1",
+          "name": "Main Article Content",
+          "selector": ".col-content",
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            ".col-content h1",
+            ".col-content h2",
+            ".col-content h3",
+            ".col-content p",
+            ".col-content ul"
+          ]
+        },
+        {
+          "id": "section-2",
+          "name": "Schedule Mammogram Promo",
+          "selector": ".promo.promo-simple.promo-icon-red",
+          "style": null,
+          "blocks": [
+            "cards"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-3",
+          "name": "Video Embeds",
+          "selector": [
+            ".cell-s.last .media-player.media-single-small"
+          ],
+          "style": null,
+          "blocks": [
+            "embed"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-4",
+          "name": "Infographic and Related Articles",
+          "selector": [
+            ".cell-s.last .blog-summary.small"
+          ],
+          "style": null,
+          "blocks": [
+            "cards"
+          ],
+          "defaultContent": [
+            ".cell-s.last .cq-dd-image"
+          ]
+        },
+        {
+          "id": "section-5",
+          "name": "Podcasts",
+          "selector": ".podcast-component",
+          "style": null,
+          "blocks": [
+            "cards"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-6",
+          "name": "Featured Articles",
+          "selector": ".fis-articles",
+          "style": null,
+          "blocks": [
+            "cards"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-7",
+          "name": "Appointment CTA Bar",
+          "selector": "section.appt-section",
+          "style": "highlight",
+          "blocks": [],
+          "defaultContent": [
+            ".appointment-bar .during-hours"
+          ]
+        },
+        {
+          "id": "section-8",
+          "name": "Help EndCancer",
+          "selector": "section.highlight.apply",
+          "style": "highlight",
+          "blocks": [
+            "cards"
+          ],
+          "defaultContent": [
+            ".nested-section-title h2"
+          ]
+        }
+      ]
+    }
+  ]
+}
