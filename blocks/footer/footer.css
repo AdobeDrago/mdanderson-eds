@@ -44,7 +44,7 @@ footer .footer-wrapper {
 
 .footer-newsletter-form button {
   padding: 8px 16px;
-  background: #c00;
+  background: var(--color-primary);
   color: #fff;
   border: none;
   font-size: 13px;
@@ -54,7 +54,7 @@ footer .footer-wrapper {
 }
 
 .footer-newsletter-form button:hover {
-  background: #a00;
+  background: var(--color-primary-hover);
 }
 
 .footer-social-icons,
@@ -77,7 +77,7 @@ footer .footer-wrapper {
 .footer-social-icons a:hover,
 .footer-podcast-icons a:hover {
   opacity: 1;
-  color: #c00;
+  color: var(--color-primary);
 }
 
 /* Links Band */
@@ -125,7 +125,7 @@ footer .footer-wrapper {
 }
 
 .footer-column a:hover {
-  color: #c00;
+  color: var(--color-primary);
   text-decoration: underline;
 }
 

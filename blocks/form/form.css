@@ -60,11 +60,11 @@
   display: block;
   width: 100%;
   margin: 0;
-  padding: 0.5em;
-  border-radius: 4px;
+  padding: 4px 10px;
+  border-radius: 0;
   border: 1px solid var(--dark-color);
   background-color: var(--background-color);
-  color: var(--text-color);
+  color: #605d5d;
   font-size: var(--body-font-size-s);
   transition: border-color 0.2s;
 }
