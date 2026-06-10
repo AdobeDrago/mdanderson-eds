@@ -52,7 +52,18 @@
     box-sizing: border-box;
   }
 
-  /* ── inner-cols: article body (fills) | right rail (358px) ── */
+  /* ── inner-cols: article body (fills) | right rail (358px) ──
+     margin-top: 70px creates the 59px visual gap below H1.
+     H1 has margin-bottom: -11px in styles.css → effective gap = 70-11 = 59px.
+     Also reset H1 margin-bottom in this context to 0 to be explicit. */
+  .columns.inner-cols {
+    margin-top: 59px;   /* matches original 59px gap between H1 and body text */
+  }
+
+  .columns.outer-cols h1 {
+    margin-bottom: 0;   /* gap controlled by inner-cols margin-top */
+  }
+
   .columns.inner-cols > div {
     gap: 0;
     align-items: flex-start;
