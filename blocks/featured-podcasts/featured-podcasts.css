@@ -1,0 +1,92 @@
+/* Featured Podcasts Block — matches MD Anderson .podcast-container.three-stacked */
+
+.featured-podcasts.block {
+  padding: 0;
+  background: transparent;
+}
+
+/* Cancerwise Podcast logo banner */
+.featured-podcasts-logo {
+  width: 100%;
+  line-height: 0;
+  margin-bottom: 0;
+}
+
+.featured-podcasts-logo img,
+.featured-podcasts-logo picture {
+  width: 100%;
+  display: block;
+}
+
+/* "Featured Podcasts" heading */
+.featured-podcasts-heading {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #000;
+  margin: 10px 0 20px;
+  padding: 0;
+  font-family: var(--heading-font-family);
+}
+
+/* Episode list */
+.featured-podcasts-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.featured-podcasts-episode {
+  padding: 12px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.featured-podcasts-episode:last-child {
+  border-bottom: none;
+}
+
+/* Episode title */
+.featured-podcasts-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #000;
+  margin: 0 0 8px;
+  line-height: 1.4;
+}
+
+/* Listen + Transcript links */
+.featured-podcasts-links {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Override EDS button decoration */
+.featured-podcasts.block .featured-podcasts-link:any-link,
+.featured-podcasts.block a.featured-podcasts-link.button:any-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.875rem;
+  color: #DA291C;
+  text-decoration: none;
+  background: none;
+  border: none;
+  padding: 0;
+  font-weight: 400;
+  letter-spacing: normal;
+  text-transform: none;
+  margin: 0;
+  white-space: normal;
+  line-height: 1.4;
+}
+
+.featured-podcasts.block .featured-podcasts-link:hover {
+  text-decoration: underline;
+  color: #a81f1b;
+  background: none;
+}
+
+.featured-podcasts.block .featured-podcasts-link svg {
+  flex-shrink: 0;
+  color: #DA291C;
+}

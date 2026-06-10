@@ -1,0 +1,166 @@
+{
+  "url": "https://www.mdanderson.org/prevention-screening/get-screened/breast-cancer-screening.html",
+  "timestamp": "2026-06-10T14:26:47.856Z",
+  "paths": {
+    "documentPath": "/prevention-screening/get-screened/breast-cancer-screening",
+    "htmlFilePath": "/prevention-screening/get-screened/breast-cancer-screening.plain.html",
+    "mdFilePath": "/prevention-screening/get-screened/breast-cancer-screening.md",
+    "dirPath": "/prevention-screening/get-screened",
+    "filename": "breast-cancer-screening"
+  },
+  "screenshot": "import-work/screenshot.png",
+  "html": {
+    "filePath": "import-work/cleaned.html",
+    "size": 330773
+  },
+  "metadata": {
+    "title": "Mammograms & Breast Cancer Screening | UT MD Anderson",
+    "viewport": "width=device-width, initial-scale=1",
+    "google-site-verification": "jbAOKI-lG24NREuEYCe3jLiDuOO56pfJt8ffeLNJJlU",
+    "keywords": "Breast Cancer",
+    "description": "Breast cancer screening exams help find breast cancer at an early stage. When found early, the chances for successfully treating the disease are greatest.",
+    "og:description": "Breast cancer screening exams help find breast cancer at an early stage. When found early, the chances for successfully treating the disease are greatest.",
+    "og:image": "https://www.mdanderson.org/mda-logo-sharable.png",
+    "twitter:card": "summary",
+    "og:type": "Website",
+    "og:site_name": "UT MD Anderson",
+    "twitter:site": "@MDAndersonNews",
+    "twitter:url": "https://www.mdanderson.org/prevention-screening/get-screened/breast-cancer-screening.html",
+    "og:title": "Mammograms & Breast Cancer Screening",
+    "diseases": "Breast Cancer",
+    "sorting_date": "2026-04-24",
+    "og:url": "https://www.mdanderson.org/prevention-screening/get-screened/breast-cancer-screening.html",
+    "twitter:image": "https://www.mdanderson.org/mda-logo-sharable.png",
+    "navurl": "https://www.mdanderson.org/prevention-screening/get-screened/breast-cancer-screening.html",
+    "canonical": "https://www.mdanderson.org/prevention-screening/get-screened/breast-cancer-screening.html",
+    "jsonLd": {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "url": "https://www.mdanderson.org",
+      "name": "UT MD Anderson",
+      "description": "Cancer treatment and cancer research hospital, cancer prevention education, medical education.",
+      "itemListElement": [
+        {
+          "@type": "SiteNavigationElement",
+          "name": "Patients & Family",
+          "url": "https://www.mdanderson.org/patients-family.html"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "name": "Becoming Our Patient",
+          "url": "https://www.mdanderson.org/patients-family/becoming-our-patient.html"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "name": "Diagnosis & Treatment",
+          "url": "https://www.mdanderson.org/patients-family/diagnosis-treatment.html"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "name": "Supporting a Loved One",
+          "url": "https://www.mdanderson.org/patients-family/supporting-a-loved-one.html"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "name": "Life After Cancer",
+          "url": "https://www.mdanderson.org/patients-family/life-after-cancer.html"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "name": "Prevention & Screening",
+          "url": "https://www.mdanderson.org/prevention-screening.html"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "name": "Manage Your Risk",
+          "url": "https://www.mdanderson.org/prevention-screening/manage-your-risk.html"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "name": "Family History",
+          "url": "https://www.mdanderson.org/prevention-screening/family-history.html"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "name": "Cancer Screenings",
+          "url": "https://www.mdanderson.org/prevention-screening/get-screened.html"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "name": "Donors & Volunteers",
+          "url": "https://www.mdanderson.org/donors-volunteers.html"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "name": "For Physicians",
+          "url": "https://www.mdanderson.org/for-physicians.html"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "name": "Research",
+          "url": "https://www.mdanderson.org/research.html"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "name": "Education & Training",
+          "url": "https://www.mdanderson.org/education-training.html"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "name": "Cancerwise Blog",
+          "url": "https://www.mdanderson.org/cancerwise.html"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "name": "Newsroom",
+          "url": "https://www.mdanderson.org/newsroom.html"
+        }
+      ]
+    }
+  },
+  "images": {
+    "count": 32,
+    "mapping": {
+      "https://www.mdanderson.org/content/dam/mdanderson/images/publications/focused-on-health/2015/WEB-Tanya-Moseley-3D-mammo.jpg.resize.216.122.high.jpg": "./images/60416d32464c28b1c0a64167c97cf7a4.jpg",
+      "https://www.mdanderson.org/content/dam/mdanderson/images/hero-images/Integrated%20Media/oph-web-promo-image-tagline.png.resize.216.122.high.jpg": "./images/d31cc03cdf49bfafcd79728a086b63bc.jpg",
+      "https://www.mdanderson.org/content/dam/mdanderson/images/l2-l3-hero/sujit_prabhu_physicians_nav.jpg.resize.216.122.high.jpg": "./images/035584132db798c41f860d8d2002da63.jpg",
+      "https://www.mdanderson.org/etc.clientlibs/mda/clientlibs/mda-web/clientlib-site/resources/images/xmda-logo.png.pagespeed.ic.jLVBCg-7dN.webp": "./images/22c17e7c50448f35b8e1093a03ad093d.png",
+      "https://www.mdanderson.org/content/dam/mdanderson/images/moonshots/researchplatforms/Clinical-Trial/CLL_Jan_Burger_175_resized.jpg.resize.216.122.high.jpg": "./images/9d6e026619b2b037a3ad96f0546b501f.jpg",
+      "https://www.mdanderson.org/content/mda/en/cancerwise/2026/04/breast-cancer-risk-assessments-what-to-know/jcr:content/blog/adaptiveimage.resize.450.0.high.jpg": "./images/4491987c50b5dd830b7ab6b8a3936147.jpg",
+      "https://www.mdanderson.org/etc.clientlibs/mda/clientlibs/mda-web/clientlib-site/resources/images/podcast/xPodcast_CWandSoundwave_Combo_800x418.png.pagespeed.ic.jrS6Ntr3h_.webp": "./images/9400e14c2a578da5da8138d116270d81.png",
+      "https://www.mdanderson.org/content/mda/en/cancerwise/2024/11/mammogram-vs--breast-ultrasound--what-s-the-difference/jcr:content/blog/adaptiveimage.resize.450.0.high.jpg": "./images/f58e87b41355a928c663eaa7db4ccafa.jpg",
+      "https://sync-tm.everesttech.net/ct/upi/pid/5w3jqr4k?redir=https%3A%2F%2Fcm.g.doubleclick.net%2Fpixel%3Fgoogle_nid%3Dg8f47s39e399f3fe%26google_push%26google_sc%26google_hm%3D%24%7BTM_USER_ID_BASE64ENC_URLENC%7D&_test=ail0GgAF6dS8dwAL": "./images/ac96a8f6ce35e6314c4155a18542a170.png",
+      "https://www.mdanderson.org/etc.clientlibs/mda/clientlibs/mda-web/clientlib-site/resources/images/podcast/xCWPodcast_Wave_Hero_2400x564.jpg.pagespeed.ic.qj8ogjaHXl.webp": "./images/f63aac31fcc54fa059e2293ab67dd665.png",
+      "https://sync-tm.everesttech.net/ct/upi/pid/btu4jd3a?redir=https%3A%2F%2Fpixel.rubiconproject.com%2Ftap.php%3Fv%3D7941%26nid%3D2243%26put%3D%24%7BUSER_ID%7D%26expires%3D90&_test=ail0GgABqwafLAAS": "./images/ad0b0f0819ea116e8c47741af8d862b3.png",
+      "https://www.mdanderson.org/content/dam/mdanderson/images/publications/cancerwise/Generics/20240927_Weaver_Contrast_Enhanced_Mammography_008_cropped.jpg.resize.450.235.high.jpg": "./images/82cec55de1c9f449f2fd045185e4b1e9.jpg",
+      "https://www.mdanderson.org/content/dam/mdanderson/images/publications/cancerwise/F/CW_Stacia_Folloder_012024.jpg.resize.450.235.high.jpg": "./images/6db6f4828c3f59b7f3e43adb4817e228.jpg",
+      "https://www.mdanderson.org/content/mda/en/jcr:content/footer/xdesktoplogo.resize.png.pagespeed.ic.wmDIh2S-LF.webp": "./images/786437f8b2d0e8b35b30283ba5ecca8f.png",
+      "https://www.mdanderson.org/etc.clientlibs/mda/clientlibs/mda-web/clientlib-site/resources/images/eA_Icon_Black.svg": "./images/770eecbeb455cb59ca23da44a2adf879.png",
+      "https://www.mdanderson.org/content/dam/mdanderson/images/publications/cancerwise/B/Wendy_Salinas_Brouwer_Dr_Schlembach_Quilt_CWCrop2.jpg.resize.450.235.high.jpg": "./images/6d6ad08c386da47e9e1b53940feaae27.jpg",
+      "https://www.mdanderson.org/content/mda/en/jcr:content/footer/xmobilelogo.resize.png.pagespeed.ic.xpgmMAVNXr.webp": "./images/cfee02b8aade6402481ce71652468847.png",
+      "https://sync-tm.everesttech.net/ct/upi/pid/ZMAwryCI?redir=https%3A%2F%2Fdsum-sec.casalemedia.com%2Frum%3Fcm_dsp_id%3D88%26external_user_id%3D%24%7BTM_USER_ID%7D&_test=ail0GgAAAIDd4gBJ": "./images/ed4ca4da6269fe63611a1dc2bc54f983.png",
+      "https://sync-tm.everesttech.net/ct/upi/pid/UH6TUt9n?redir=https%3A%2F%2Fib.adnxs.com%2Fsetuid%3Fentity%3D158%26code%3D%24%7BTM_USER_ID%7D&_test=ail0GwAF6grEawAL": "./images/ec40d65697716d47e7e316ab1aa220c2.png",
+      "https://sync-tm.everesttech.net/ct/upi/pid/ny75r2x0?redir=https%3A%2F%2Fus-u.openx.net%2Fw%2F1.0%2Fsd%3Fid%3D537148856%26val%3D%24%7BTM_USER_ID%7D&_test=ail0GwAF55jHdgAL": "./images/321599a6b04bfc4de57c9d61673d6b3a.png",
+      "https://dpm.demdex.net/ibs:dpid=411&dpuuid=ail0GwAAADm4UwOV": "./images/04698f755009393f3dba891f637eea56.png",
+      "https://www.mdanderson.org/etc.clientlibs/mda/clientlibs/mda-web/clientlib-site/resources/images/strike-through/strike_left.png": "./images/9b561defeb86aefcadb11ef6078b731f.png",
+      "https://www.mdanderson.org/etc.clientlibs/mda/clientlibs/mda-web/clientlib-site/resources/images/strike-through/strike_right.png": "./images/809f3cf8fbe06fe5f6658dffc6beefc0.png",
+      "https://www.mdanderson.org/etc.clientlibs/mda/clientlibs/mda-web/clientlib-site/resources/images/strike-through/strike_tile.png": "./images/06280a4b1f8ea9d42698efeb939fee10.png",
+      "https://www.mdanderson.org/prevention-screening/get-screened/breast-cancer-screening/jcr:content/mainparsys/columns/column2/basicvideo_740065123.resize.648.0.medium.dir.jpg/1768786242010.jpg": "./images/17738eb344cda56c104ee593055a2979.jpg",
+      "https://www.mdanderson.org/prevention-screening/get-screened/breast-cancer-screening/jcr:content/mainparsys/columns/column2/basicvideo_2126168582.resize.648.0.medium.dir.jpg/1768786245594.jpg": "./images/255f06bd1cfd9e67fe9915bb63cd0caa.jpg",
+      "https://stats-ssl.mdanderson.org/b/ss/mda.www,mda.org/1/JS-2.9.0/s6945959587066?AQB=1&ndh=1&pf=1&t=10%2F5%2F2026%2010%3A26%3A35%203%20240&sdid=37773ECB39AF1273-259805D679891AE8&mid=76687647333043620363073316452439339621&aamlh=7&ce=UTF-8&ns=mdanderson&cdp=2&pageName=prevention-screening%3Aget-screened%3Abreast-cancer-screening&g=https%3A%2F%2Fwww.mdanderson.org%2Fprevention-screening%2Fget-screened%2Fbreast-cancer-screening.html&c.&getPercentPageViewed=5.0.1&.c&cc=USD&ch=prevention-screening&server=www.mdanderson.org&events=event99%3D&aamb=RKhpRz8krg2tLO6pguXWp5olkAcUniQYPHaMWWgdJ3xzPWQmdj0y&c9=undefined&c14=english&c15=desktop&c16=https%3A%2F%2Fwww.mdanderson.org%2Fprevention-screening%2Fget-screened%2Fbreast-cancer-screening.html&c22=ad%20blocker%20absent&v25=https%3A%2F%2Fwww.mdanderson.org%2Fprevention-screening%2Fget-screened%2Fbreast-cancer-screening.html&c31=New&v31=New&c32=1&v32=1&c33=9%3A26%20AM%7CWednesday&v33=9%3A26%20AM%7CWednesday&c34=9%3A26%20AM%7CWednesday&v34=9%3A26%20AM%7CWednesday&v35=desktop&v36=english&v37=prevention-screening%3Aget-screened%3Abreast-cancer-screening&c50=mda2.0&v50=mda2.0&c71=2026-04-24&v71=2026-04-24&v76=019eb1ed875900125592bad802fd000810059079007e8&v91=mozilla%2F5.0%20%28macintosh%3B%20intel%20mac%20os%20x%2010_15_7%29%20applewebkit%2F537.36%20%28khtml%2C%20like%20gecko%29%20headlesschrome%2F148.0.7778.96%20safari%2F537.36&s=1280x720&c=24&j=1.6&v=N&k=Y&bw=1280&bh=720&mcorgid=13664673527846410A490D45%40AdobeOrg&AQE=1": "./images/44c8fa82600c0c66b76921b979164ef3.png",
+      "https://sync-tm.everesttech.net/ct/upi/pid/b9pj45k4?redir=https%3A%2F%2Fimage2.pubmatic.com%2FAdServer%2FPug%3Fvcode%3Dbz0yJnR5cGU9MSZqcz0xJmNvZGU9MjE5MSZ0bD0yNTkyMDA%3D%26piggybackCookie%3D%24%7BUSER_ID%7D&_test=ail0GwAAEq3nRgBJ": "./images/878b8cb55cf02d89a63848a51b8110eb.png",
+      "https://www.mdanderson.org/prevention-screening/get-screened/breast-cancer-screening/jcr:content/mainparsys/columns/column2/adaptiveimage.resize.648.0.medium.dir.jpg/1768794165973.jpg": "./images/642788bd782158230ea188868b41115f.jpg",
+      "https://sync-tm.everesttech.net/ct/upi/pid/h0r58thg?redir=https%3A%2F%2Fsync.search.spotxchange.com%2Fpartner%3Fadv_id%3D6409%26uid%3D%24%7BUSER_ID%7D%26img%3D1&_test=ail0GwAAAJDOsgAL": "./images/bb237b4c009cc39d9fd0fb60e21588f5.png",
+      "https://23.global.siteimproveanalytics.io/image.aspx?url=https%3A%2F%2Fwww.mdanderson.org%2Fprevention-screening%2Fget-screened%2Fbreast-cancer-screening.html&title=Mammograms%20%26%20Breast%20Cancer%20Screening%20%7C%20UT%20MD%20Anderson&res=1280x720&accountid=23&rt=952&prev=684f1957-7df2-8dbf-0796-01a402f53861&luid=d9b4c525-f544-bdd1-8803-91ac508ce1c2&rnd=26974": "./images/a4c14bfcd9200ca6a8ba0441652a68b3.png",
+      "https://sync-tm.everesttech.net/ct/upi/pid/r7ifn0SL?redir=https%3A%2F%2Fwww.facebook.com%2Ffr%2Fb.php%3Fp%3D1531105787105294%26e%3D%24%7BTM_USER_ID%7D%26t%3D2592000%26o%3D0&_test=ail0GwAAEyfrtABJ": "./images/6aa0af068e24aeef202761adcf64ab58.png"
+    },
+    "stats": {
+      "total": 49,
+      "converted": 9,
+      "skipped": 23,
+      "failed": 17,
+      "tooLarge": 0,
+      "limitReached": 0
+    }
+  }
+}
