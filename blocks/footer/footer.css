@@ -282,10 +282,11 @@ footer .footer-contact-link:hover {
 
 /* ============================================================
    BAND 3 — Light grey sub-links bar
+   Original .footer-sublinks: pt:30 pb:40 pl:48 pr:48
    ============================================================ */
 .footer-sublinks-band {
   background-color: var(--color-footer-sublinks, #F2F3F4);
-  padding: 20px 64px;
+  padding: 30px 48px 40px;
 }
 
 .footer-sublinks-list {
@@ -327,20 +328,30 @@ footer .footer-sublinks-list a:hover {
 .footer-bottom-band {
   background-color: #000;
   color: #fff;
-  padding: 30px 64px;   /* original bottom bar uses tighter padding */
+  padding: 0;            /* original: no padding on band itself */
   display: flex;
-  align-items: flex-start;
-  gap: 40px;
+  align-items: stretch;
+  gap: 0;
+}
+
+/* Logo section: original .footer-bar-logo pt:25 pb:25 pl:54 pr:54 (485px wide) */
+.footer-bottom-logo {
+  padding: 25px 54px;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
 }
 
 .footer-bottom-logo img {
   height: 48px;
   width: auto;
-  filter: brightness(0) invert(1); /* Make logo white on black bg */
+  filter: brightness(0) invert(1);
 }
 
+/* Text section: original .footer-bar-text pt:50 pb:50 pl:0 pr:72 */
 .footer-bottom-text {
   flex: 1;
+  padding: 50px 72px 50px 0;
 }
 
 .footer-mission {
@@ -366,10 +377,24 @@ footer .footer-sublinks-list a:hover {
     padding: 16px 32px;
   }
 
-  .footer-links-band,
-  .footer-sublinks-band,
+  .footer-links-band {
+    padding: 0 32px 32px;
+  }
+
+  .footer-sublinks-band {
+    padding: 24px 32px 32px;
+  }
+
   .footer-bottom-band {
-    padding: 32px 32px;
+    flex-direction: column;
+  }
+
+  .footer-bottom-logo {
+    padding: 20px 32px;
+  }
+
+  .footer-bottom-text {
+    padding: 20px 32px;
   }
 
   .footer-columns {
@@ -404,11 +429,10 @@ footer .footer-sublinks-list a:hover {
     width: 100%;
   }
 
-  .footer-links-band,
-  .footer-sublinks-band,
-  .footer-bottom-band {
-    padding: 24px;
-  }
+  .footer-links-band { padding: 0 24px 24px; }
+  .footer-sublinks-band { padding: 20px 24px; }
+  .footer-bottom-logo { padding: 16px 24px; }
+  .footer-bottom-text { padding: 20px 24px; }
 
   .footer-columns {
     grid-template-columns: 1fr;

@@ -11,7 +11,7 @@
   padding: 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 24px;
+  gap: 43px 43px;    /* original: cards spaced ~43px apart (mr: 42.95px on each card) */
 }
 
 /* Limit to 2 cards (hide 3rd if present) */
@@ -59,9 +59,9 @@
   object-fit: cover;
 }
 
-/* Title wrapper */
+/* Title wrapper — original .blog-summary-wrapper: padding 18px */
 .featured-articles-title-wrapper {
-  padding: 16px 40px 16px 0;
+  padding: 18px 18px 18px 18px;
   margin: 0;
 }
 
@@ -73,8 +73,8 @@
   color: #000;
   letter-spacing: -0.02em;
   line-height: 1.3;
-  margin: 0 0 16px;
-  padding: 0 0 0 16px;
+  margin: 0;
+  padding: 0;
 }
 
 .featured-articles-card:hover .featured-articles-title {

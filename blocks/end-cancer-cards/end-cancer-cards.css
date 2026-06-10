@@ -14,7 +14,7 @@
 
 /* Individual card */
 .end-cancer-card {
-  padding: 60px 24px;
+  padding: 60px 0;
   text-align: center;
   display: flex;
   flex-direction: column;
