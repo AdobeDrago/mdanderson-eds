@@ -205,6 +205,7 @@ header .nav-wrapper {
   color: #414042;
   text-decoration: none;
   font-size: 16px;
+  font-family: var(--nav-font-family, "UniversLTW01-67BoldCn", arial, sans-serif);
   text-transform: uppercase;
   letter-spacing: -0.02em;
 }
@@ -379,37 +380,49 @@ header .nav-wrapper {
   display: flex;
   align-items: stretch;
   border-right: 1px solid rgb(208 208 206 / 40%);
+  height: 60px;               /* explicitly cap height to prevent button-margin inflation */
+  overflow: visible;          /* panel still escapes */
 }
 
 .nav-item:first-child {
   border-left: 1px solid rgb(208 208 206 / 40%);
 }
 
-/* Link + chevron button share the red row */
-.nav-item-link {
+/* Link + chevron button share the red row.
+   Use header.block scope to beat a:any-link global (#3361AD) */
+.header.block .nav-item-link:any-link,
+.header.block .nav-item-link {
   display: flex;
   align-items: center;
   flex: 1;
   padding: 0 20px;
-  color: #fff;
+  color: #fff;                  /* override global a:any-link blue */
   text-decoration: none;
   font-size: 16px;
   font-weight: 400;
+  font-family: var(--nav-font-family, "UniversLTW01-67BoldCn", arial, sans-serif);
   text-transform: uppercase;
   letter-spacing: -0.02em;
   white-space: nowrap;
   line-height: 60px;
   height: 60px;
+  background: none;
+  border: none;
+  border-radius: 0;
+  margin: 0;
+  box-sizing: border-box;
   transition: background 0.15s ease;
 }
 
-.nav-item-link:hover,
-.nav-item.is-open .nav-item-link {
+.header.block .nav-item-link:hover,
+.header.block .nav-item.is-open .nav-item-link {
   background-color: #a81f1b;
   color: #fff;
+  text-decoration: none;
 }
 
-/* Desktop chevron arrow */
+/* Desktop chevron — reset ALL global button styles that inflate height/width */
+.header.block .nav-item-chevron,
 .nav-item-chevron {
   display: flex;
   align-items: center;
@@ -421,6 +434,14 @@ header .nav-wrapper {
   cursor: pointer;
   flex-shrink: 0;
   position: relative;
+  /* Reset global button rule: margin:12px 0, padding:10px 35px */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font: inherit;
+  line-height: normal;
+  text-align: center;
+  white-space: nowrap;
 }
 
 .nav-item-chevron::after {
@@ -448,15 +469,16 @@ header .nav-wrapper {
   position: relative; /* anchor for absolutely-positioned panel */
 }
 
+/* ---- Mega Menu Panel — matches original .dropdown-sublist / .n7-blocks layout ---- */
 .nav-panel {
   display: none;
   position: absolute;
   left: 0;
   right: 0;
   top: 100%;
-  background: #f2f2f2;
-  box-shadow: 0 8px 24px rgb(0 0 0 / 20%);
-  padding: 32px 48px;
+  background: #f2f2f2;           /* original: rgb(242,242,242) */
+  box-shadow: 0 6px 12px rgb(0 0 0 / 15%);
+  padding: 0 20px;               /* original: panel padding 0 20px */
   z-index: 800;
   border-top: none;
 }
@@ -466,46 +488,62 @@ header .nav-wrapper {
   gap: 0;
 }
 
+/* Columns area — flex, no gap, no borders between cols */
 .nav-panel-columns {
   display: flex;
   gap: 0;
   flex: 1;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  padding: 20px 0;              /* vertical breathing room */
 }
 
+/* Individual column — original: 223px wide each, no border */
 .nav-panel-column {
-  min-width: 180px;
   flex: 1;
-  padding: 0 24px 0 0;
-  border-right: 1px solid #eee;
-  margin-right: 24px;
+  min-width: 150px;
+  padding: 0 20px;              /* column left/right padding */
+  border-right: none;           /* no borders between cols — matches original */
+  margin-right: 0;
+}
+
+.nav-panel-column:first-child {
+  padding-left: 0;
 }
 
 .nav-panel-column:last-child {
-  border-right: none;
-  margin-right: 0;
   padding-right: 0;
 }
 
-.nav-panel-heading {
+/* Column heading — original: Univers LT 65 Bold, 16px, RED #d82c27
+   Use header.block scope to beat global a:any-link (#3361AD) */
+.header.block .nav-panel-heading:any-link,
+.header.block .nav-panel-heading {
   display: block;
-  font-weight: 700;
-  font-size: 15px;
+  font-family: var(--ui-font-family, "Univers LT W01_65 Bold", arial, sans-serif);
+  font-weight: 400;
+  font-size: 1rem;
   color: #d82c27;
   text-decoration: none;
   text-transform: none;
   letter-spacing: normal;
-  margin-bottom: 14px;
-  padding-bottom: 0;
+  margin: 0 0 10px;
+  padding-bottom: 10px;
   border-bottom: none;
   line-height: 1.3;
+  background: none;
+  border-radius: 0;
+  padding-top: 0;
+  padding-left: 0;
+  padding-right: 0;
 }
 
-.nav-panel-heading:hover {
-  text-decoration: underline;
+.header.block .nav-panel-heading:hover {
   color: #a81f1b;
+  text-decoration: underline;
+  background: none;
 }
 
+/* Column links — original: Univers LT 55 Roman, 16px, black */
 .nav-panel-links {
   list-style: none;
   margin: 0;
@@ -513,14 +551,16 @@ header .nav-wrapper {
 }
 
 .nav-panel-links li {
-  margin-bottom: 8px;
+  margin-bottom: 0;
+  padding-bottom: 10px;         /* original: 10px spacing between links */
 }
 
 .nav-panel-links a {
-  color: #444;
+  color: #000;                  /* original: rgb(0,0,0) */
   text-decoration: none;
-  font-size: 13px;
-  line-height: 1.5;
+  font-family: var(--body-font-family, "Univers LT W01_55 Roman", arial, sans-serif);
+  font-size: 1rem;              /* 16px — matches original */
+  line-height: 1.3;
   display: block;
 }
 
@@ -529,11 +569,12 @@ header .nav-wrapper {
   text-decoration: underline;
 }
 
-/* Panel Aside (secondary CTAs) */
+/* Panel Aside — original: blue links (#3361AD), no left border rule in original
+   but visually separated. Aside link color: rgb(51,97,173) = #3361AD */
 .nav-panel-aside {
-  border-left: 1px solid #ccc;
-  padding-left: 32px;
-  min-width: 220px;
+  border-left: 1px solid #d8d8d6;  /* subtle separator */
+  padding: 20px 0 20px 24px;
+  min-width: 200px;
   max-width: 260px;
   flex-shrink: 0;
   display: flex;
@@ -542,51 +583,45 @@ header .nav-wrapper {
 }
 
 .nav-panel-cta {
-  padding: 14px 0;
-  border-bottom: 1px solid #ddd;
-}
-
-.nav-panel-cta:first-child {
-  padding-top: 0;
-}
-
-.nav-panel-cta:last-child {
+  padding: 0 0 20px;
   border-bottom: none;
 }
 
+.nav-panel-cta:last-child {
+  padding-bottom: 0;
+}
+
+/* Aside CTA link — original: rgb(51,97,173) BLUE, bold, 16px, with → arrow */
 .nav-panel-cta-link {
   display: flex;
   align-items: center;
   gap: 6px;
   text-decoration: none;
-  color: #d82c27;
+  color: #3361ad;               /* original: rgb(51,97,173) */
+  font-family: var(--body-font-family);
   font-weight: 700;
-  font-size: 15px;
-  line-height: 1.2;
+  font-size: 1rem;              /* 16px */
+  line-height: 1.3;
 }
 
 .nav-panel-cta-link::after {
   content: '→';
-  font-size: 14px;
+  font-size: 0.875rem;
   flex-shrink: 0;
 }
 
 .nav-panel-cta-link:hover {
   text-decoration: underline;
-  color: #a81f1b;
+  color: #2a4e8a;
 }
 
-.nav-panel-cta-link img {
-  width: 100%;
-  height: auto;
-  margin-bottom: 8px;
-}
-
+/* Aside description text — original: Univers 55, 16px, black */
 .nav-panel-cta-desc {
-  font-size: 13px;
-  color: #555;
+  font-family: var(--body-font-family);
+  font-size: 1rem;              /* 16px — matches original */
+  color: #000;
   margin: 6px 0 0;
-  line-height: 1.5;
+  line-height: 1.4;
 }
 
 /* Overlay */
@@ -709,7 +744,7 @@ header .nav-wrapper {
     box-shadow: none;
     padding: 0 16px 16px 20px;
     border-top: none;
-    background: #a81f1b;
+    background: #b82620;        /* slightly darker red for mobile nesting */
   }
 
   .nav-item.is-open .nav-panel {
@@ -718,25 +753,31 @@ header .nav-wrapper {
 
   .nav-panel-columns {
     flex-direction: column;
-    gap: 20px;
+    gap: 0;
+    padding: 8px 0;
   }
 
   .nav-panel-column {
     min-width: unset;
-    padding: 0;
+    padding: 0 0 12px;
     border-right: none;
     margin-right: 0;
   }
 
+  .nav-panel-column:first-child {
+    padding-left: 0;
+  }
+
   .nav-panel-heading {
     color: #fff;
-    border-bottom-color: #d82c27;
-    font-size: 12px;
+    font-size: 0.875rem;
+    padding-bottom: 4px;
   }
 
   .nav-panel-links a {
-    color: #ccc;
-    padding: 4px 0;
+    color: rgb(230 230 230);
+    padding: 3px 0;
+    font-size: 0.875rem;
   }
 
   .nav-panel-links a:hover {
@@ -745,8 +786,8 @@ header .nav-wrapper {
 
   .nav-panel-aside {
     border-left: none;
-    border-top: 1px solid #333;
-    padding: 16px 0 0;
+    border-top: 1px solid rgb(255 255 255 / 20%);
+    padding: 12px 0 0;
     min-width: unset;
     max-width: unset;
     margin-top: 8px;

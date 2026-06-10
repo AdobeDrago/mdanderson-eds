@@ -1,0 +1,93 @@
+/* Featured Articles Block — matches MD Anderson .fis-articles */
+
+.featured-articles.block {
+  padding: 0;
+}
+
+/* 2-column card grid */
+.featured-articles-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+/* Limit to 2 cards (hide 3rd if present) */
+.featured-articles-item:nth-child(n+3) {
+  display: none;
+}
+
+/* Card — full link with border */
+.featured-articles.block .featured-articles-card:any-link {
+  display: block;
+  border: 1px solid #D0D0CE;
+  text-decoration: none;
+  color: #000;
+  height: 100%;
+  background: #fff;
+  transition: none;
+  padding: 0;
+  border-radius: 0;
+  margin: 0;
+  font-weight: 400;
+  letter-spacing: normal;
+  text-transform: none;
+  white-space: normal;
+  background-color: #fff;
+}
+
+.featured-articles.block .featured-articles-card:hover {
+  text-decoration: none;
+  background: #fff;
+  background-color: #fff;
+}
+
+/* Image — full width */
+.featured-articles-img {
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.featured-articles-img picture,
+.featured-articles-img img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 2 / 1;
+  object-fit: cover;
+}
+
+/* Title wrapper */
+.featured-articles-title-wrapper {
+  padding: 16px 40px 16px 0;
+  margin: 0;
+}
+
+/* Title text — original: 24px Minion Semi Bold */
+.featured-articles-title {
+  font-family: var(--heading-font-family);
+  font-size: 1.5rem;    /* 24px */
+  font-weight: 600;     /* Semi Bold */
+  color: #000;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  margin: 0 0 16px;
+  padding: 0 0 0 16px;
+}
+
+.featured-articles-card:hover .featured-articles-title {
+  color: #DA291C;
+}
+
+/* Mobile: stack */
+@media (width < 900px) {
+  .featured-articles-list {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-articles-item:nth-child(n+3) {
+    display: block;
+  }
+}

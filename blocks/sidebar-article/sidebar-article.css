@@ -28,15 +28,17 @@
   padding: 12px 12px 0;
 }
 
+/* Title — original: 24px Minion Semi Bold */
 .sidebar-article-title h3,
 .sidebar-article-title h3 a {
   font-family: var(--heading-font-family);
-  font-size: 1.25rem;
-  font-weight: 400;
+  font-size: 1.5rem;    /* 24px */
+  font-weight: 600;     /* Semi Bold */
   color: #000;
   text-decoration: none;
   margin: 0;
   line-height: 1.3;
+  letter-spacing: -0.02em;
 }
 
 .sidebar-article-summary {

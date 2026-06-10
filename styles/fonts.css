@@ -1,36 +1,109 @@
 /* stylelint-disable max-line-length */
-@font-face {
-  font-family: roboto-condensed;
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url('../fonts/roboto-condensed-bold.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
+/* ============================================================
+   MD Anderson Brand Fonts
+   Sourced from mdanderson.org CDN (publicly accessible WOFF files)
+   ============================================================ */
 
+/* Minion Pro — Serif, used for headings and body copy */
 @font-face {
-  font-family: roboto;
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url('../fonts/roboto-bold.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-  font-family: roboto;
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url('../fonts/roboto-medium.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-  font-family: roboto;
+  font-family: "Minion Regular";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('../fonts/roboto-regular.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  src: url('https://www.mdanderson.org/etc.clientlibs/mda/clientlibs/mda-web/clientlib-site/resources/fonts/MinionPro/MinionPro-Regular.woff') format('woff'),
+       url('https://www.mdanderson.org/etc.clientlibs/mda/clientlibs/mda-web/clientlib-site/resources/fonts/MinionPro/MinionPro-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "Minion Semi Bold";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('https://www.mdanderson.org/etc.clientlibs/mda/clientlibs/mda-web/clientlib-site/resources/fonts/MinionPro/MinionPro-Semibold.woff') format('woff'),
+       url('https://www.mdanderson.org/etc.clientlibs/mda/clientlibs/mda-web/clientlib-site/resources/fonts/MinionPro/MinionPro-Semibold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "Minion Bold";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('https://www.mdanderson.org/etc.clientlibs/mda/clientlibs/mda-web/clientlib-site/resources/fonts/MinionPro/MinionPro-Bold.woff') format('woff'),
+       url('https://www.mdanderson.org/etc.clientlibs/mda/clientlibs/mda-web/clientlib-site/resources/fonts/MinionPro/MinionPro-Bold.ttf') format('truetype');
+}
+
+/* Map "Minion Regular" at weight 700 to the actual bold woff — prevents synthetic bold */
+@font-face {
+  font-family: "Minion Regular";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('https://www.mdanderson.org/etc.clientlibs/mda/clientlibs/mda-web/clientlib-site/resources/fonts/MinionPro/MinionPro-Bold.woff') format('woff'),
+       url('https://www.mdanderson.org/etc.clientlibs/mda/clientlibs/mda-web/clientlib-site/resources/fonts/MinionPro/MinionPro-Bold.ttf') format('truetype');
+}
+
+/* Map "Minion Regular" at weight 600 to the semi-bold woff */
+@font-face {
+  font-family: "Minion Regular";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('https://www.mdanderson.org/etc.clientlibs/mda/clientlibs/mda-web/clientlib-site/resources/fonts/MinionPro/MinionPro-Semibold.woff') format('woff'),
+       url('https://www.mdanderson.org/etc.clientlibs/mda/clientlibs/mda-web/clientlib-site/resources/fonts/MinionPro/MinionPro-Semibold.ttf') format('truetype');
+}
+
+/* Univers LT W01 — Sans-serif family, used for UI, nav, body on some elements */
+@font-face {
+  font-family: "Univers LT W01_45 Light";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('https://www.mdanderson.org/etc.clientlibs/mda/clientlibs/mda-web/clientlib-site/resources/fonts/ecf89914-1896-43f6-a0a0-fe733d1db6e7.woff') format('woff'),
+       url('https://www.mdanderson.org/etc.clientlibs/mda/clientlibs/mda-web/clientlib-site/resources/fonts/7628f343-8c36-4707-9559-8feb86c0462f.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "Univers LT W01_55 Roman";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://www.mdanderson.org/etc.clientlibs/mda/clientlibs/mda-web/clientlib-site/resources/fonts/7b95cb9a-a288-4405-97a0-13095f56a903.woff') format('woff'),
+       url('https://www.mdanderson.org/etc.clientlibs/mda/clientlibs/mda-web/clientlib-site/resources/fonts/c7481806-4ea4-40db-a623-7bc352bbbe43.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "Univers LT W01_65 Bold";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('https://www.mdanderson.org/etc.clientlibs/mda/clientlibs/mda-web/clientlib-site/resources/fonts/b993da84-c1f6-474a-8f00-8aa797b3de8f.woff') format('woff'),
+       url('https://www.mdanderson.org/etc.clientlibs/mda/clientlibs/mda-web/clientlib-site/resources/fonts/58403ef6-4c15-4280-b4b6-9acf50804f4f.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "UniversLTW01-67BoldCn";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('https://www.mdanderson.org/etc.clientlibs/mda/clientlibs/mda-web/clientlib-site/resources/fonts/21decb60-b395-4de2-bd04-e38eb2a56d2f.woff') format('woff'),
+       url('https://www.mdanderson.org/etc.clientlibs/mda/clientlibs/mda-web/clientlib-site/resources/fonts/091058d4-36b2-43f6-80d3-16c88e098061.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "UniversLTW01-57Condense_723821";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://www.mdanderson.org/etc.clientlibs/mda/clientlibs/mda-web/clientlib-site/resources/fonts/1eaf27c0-f4de-4273-9f4c-1b3236ad2f3c.woff') format('woff'),
+       url('https://www.mdanderson.org/etc.clientlibs/mda/clientlibs/mda-web/clientlib-site/resources/fonts/9b913baf-b1f0-47d2-8c76-42f59650058f.ttf') format('truetype');
+}
+
+/* Fallback: roboto-fallback used in lazy-load scenario */
+@font-face {
+  font-family: roboto-fallback;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  size-adjust: 99.529%;
+  src: local('Arial');
 }

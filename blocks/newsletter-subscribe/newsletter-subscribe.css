@@ -1,0 +1,118 @@
+/* Newsletter Subscribe Block — matches MD Anderson .subscribe-to */
+
+.newsletter-subscribe.block {
+  background-color: #000;
+  padding: 20px 72px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Email icon circle */
+.newsletter-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background-color: #DA291C;
+  border-radius: 50%;
+  flex-shrink: 0;
+  color: #fff;
+}
+
+.newsletter-icon svg {
+  color: #fff;
+  width: 24px;
+  height: 24px;
+}
+
+/* Title */
+.newsletter-title {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 400;
+  font-family: var(--body-font-family);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Form */
+.newsletter-form {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+/* Fields wrapper */
+.newsletter-fields {
+  display: flex;
+  gap: 8px;
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+/* Inputs */
+.newsletter-subscribe.block .newsletter-input {
+  background-color: #F7F7F7;
+  color: #666;
+  font-size: 0.875rem;
+  font-family: var(--body-font-family);
+  padding: 7px 10px;
+  border: 1px solid #BFBFBF;
+  border-radius: 2px;
+  outline: none;
+  flex: 1;
+  min-width: 120px;
+}
+
+.newsletter-subscribe.block .newsletter-input:focus {
+  border-color: #DA291C;
+  background: #fff;
+}
+
+/* Submit button */
+.newsletter-subscribe.block .newsletter-submit,
+.newsletter-subscribe.block button.newsletter-submit {
+  background-color: #DA291C;
+  color: #fff;
+  font-size: 1rem;
+  font-family: var(--body-font-family);
+  font-weight: 400;
+  padding: 7px 16px;
+  border: 1px solid #fff;
+  border-radius: 0;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.2s ease;
+}
+
+.newsletter-subscribe.block .newsletter-submit:hover {
+  background-color: #b52420;
+}
+
+/* Responsive */
+@media (width < 900px) {
+  .newsletter-subscribe.block {
+    padding: 16px 24px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .newsletter-title {
+    white-space: normal;
+  }
+
+  .newsletter-fields {
+    flex-direction: column;
+  }
+
+  .newsletter-subscribe.block .newsletter-input {
+    width: 100%;
+  }
+}

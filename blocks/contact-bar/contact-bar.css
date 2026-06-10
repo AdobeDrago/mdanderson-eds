@@ -1,0 +1,70 @@
+/* ============================================================
+   Contact Bar Block
+   Matches MD Anderson's .appointment-bar component:
+   full-width blue band, white text, bold label + white links
+   ============================================================ */
+
+.contact-bar.block {
+  background-color: var(--color-secondary, #3361AD);
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Force the parent section to be flush — no margin/padding from styles.css */
+.section:has(.contact-bar.block) {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-secondary, #3361AD);
+}
+
+.contact-bar-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 84px;
+  text-align: center;
+  font-family: var(--body-font-family);
+  font-size: 1.3125rem; /* 21px — matches original .appointment-bar */
+  font-weight: 400;
+  color: #fff;
+  line-height: 1.5;
+}
+
+/* "We're here for you." bold label */
+.contact-bar-inner strong,
+.contact-bar-bold {
+  font-family: var(--ui-font-family, "Univers LT W01_65 Bold", arial, sans-serif);
+  font-weight: 700;
+  color: #fff;
+}
+
+/* Phone and appointment links — white, underlined */
+.contact-bar.block .contact-bar-inner a:any-link {
+  color: #fff;
+  text-decoration: underline;
+  font-weight: 400;
+  background: none;
+  border: none;
+  padding: 0;
+  display: inline;
+  font-family: inherit;
+  font-size: inherit;
+  letter-spacing: normal;
+  text-transform: none;
+  margin: 0;
+  white-space: normal;
+}
+
+.contact-bar.block .contact-bar-inner a:hover {
+  color: #e8eef7;
+  text-decoration: underline;
+  background: none;
+}
+
+/* Responsive */
+@media (width < 900px) {
+  .contact-bar-inner {
+    padding: 24px 24px;
+    font-size: 1rem;
+  }
+}

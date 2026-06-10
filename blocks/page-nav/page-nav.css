@@ -1,51 +1,81 @@
-/* Page Nav — left TOC sidebar component */
+/* ============================================================
+   Page Nav Block — left-rail TOC
+   Matches MD Anderson's #sidebar-nav pattern exactly:
+   - Jump To: label is HIDDEN (display:none in original)
+   - Each link has border-top + border-bottom (1px solid #D0D0CE)
+   - Active link: red text, Univers LT 65 Bold, left red border
+   ============================================================ */
+
 .page-nav.block {
-  padding: 0;
+  padding: 30px 0;            /* original: #sidebar-nav padding 30px 0 */
 }
 
+/* "Jump To:" label — HIDDEN in original (display:none) */
 .page-nav-label {
-  color: #d82c27;
-  font-weight: 700;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 8px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid #eee;
+  display: none;
 }
 
+/* Nav list */
 .page-nav-list {
   list-style: none;
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 
+/* Each item — original: padding 5px 0, margin-bottom 10px */
 .page-nav-item {
-  border-left: 3px solid transparent;
-  padding: 6px 0 6px 12px;
-  margin-bottom: 2px;
-  transition: border-color 0.15s;
+  clear: both;
+  padding: 5px 0;
+  margin: 0 0 10px;
+  position: relative;
+  border-left: none;
 }
 
-.page-nav-item.active {
-  border-left-color: #d82c27;
-}
-
-.page-nav-item a {
-  color: #333;
-  text-decoration: none;
-  font-size: 0.9rem;
-  line-height: 1.4;
+/* All links — original: display block, border-top/bottom, padding 8px 20px 10px,
+   Univers 55 Roman, 14px, black (#000)
+   Must beat global: a:any-link (blue), a.button (blue bg + 10px 35px padding) */
+.page-nav.block .page-nav-item a:any-link,
+.page-nav.block .page-nav-item a.button:any-link {
   display: block;
+  border-top: 1px solid #D0D0CE;
+  border-bottom: 1px solid #D0D0CE;
+  color: #000;
+  font-family: var(--body-font-family, "Univers LT W01_55 Roman", arial, sans-serif);
+  font-size: 0.875rem;        /* 14px */
+  font-weight: 400;
+  padding: 8px 20px 10px;
+  text-decoration: none;
+  line-height: 1.4;
+  /* Reset global button pollution */
+  background: transparent;
+  background-color: transparent;
+  border-radius: 0;
+  margin: 0;
+  text-align: left;
+  text-transform: none;
+  letter-spacing: normal;
+  white-space: normal;
+  max-width: none;
+  box-sizing: border-box;
 }
 
-.page-nav-item.active a,
-.page-nav-item.active span {
-  color: #d82c27;
-  font-weight: 700;
+/* Active link — Univers LT 65 Bold, red #DA291C, with red left border */
+.page-nav.block .page-nav-item.active a:any-link,
+.page-nav.block .page-nav-item.active a.button:any-link {
+  color: #da291c;
+  font-family: var(--ui-font-family, "Univers LT W01_65 Bold", arial, sans-serif);
+  font-weight: 400;           /* Univers 65 Bold is bold at weight 400 */
+  border-left: 3px solid #da291c;
+  padding-left: 17px;         /* 20 - 3 = same visual indent */
+  background: transparent;
+  background-color: transparent;
 }
 
-.page-nav-item a:hover {
-  color: #d82c27;
-  text-decoration: underline;
+/* Hover */
+.page-nav.block .page-nav-item a:hover {
+  color: #da291c;
+  text-decoration: none;
+  background: transparent;
+  background-color: transparent;
 }
