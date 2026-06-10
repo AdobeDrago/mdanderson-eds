@@ -2,7 +2,15 @@
   width: unset;
   text-align: center;
   max-width: 800px;
-  margin: 32px auto;
+  margin: 16px auto 4px;
+}
+
+p.embed-caption {
+  font-size: 0.85rem;
+  color: #555;
+  text-align: center;
+  margin: 0 auto 16px;
+  font-style: italic;
 }
 
 .embed > div {

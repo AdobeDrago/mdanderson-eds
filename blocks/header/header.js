@@ -19,16 +19,19 @@ export default async function decorate(block) {
   nav.className = 'nav-wrapper';
   nav.setAttribute('aria-expanded', 'false');
 
-  // Section 0: Utility bar
+  // Section 0: CTA bar (MyChart / Request Appointment / Donate)
   const utilSection = sections[0];
   if (utilSection) {
     const utilBar = document.createElement('div');
     utilBar.className = 'nav-utility-bar';
-    utilSection.querySelectorAll('a').forEach((a) => {
-      const link = a.cloneNode(true);
-      link.className = 'nav-utility-link';
-      utilBar.appendChild(link);
-    });
+    const topList = utilSection.querySelector(':scope > ul');
+    if (topList) {
+      const ul = document.createElement('ul');
+      topList.querySelectorAll(':scope > li').forEach((li) => {
+        ul.appendChild(li.cloneNode(true));
+      });
+      utilBar.appendChild(ul);
+    }
     nav.appendChild(utilBar);
   }
 
