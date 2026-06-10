@@ -1,0 +1,51 @@
+/* Page Nav — left TOC sidebar component */
+.page-nav.block {
+  padding: 0;
+}
+
+.page-nav-label {
+  color: #d82c27;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #eee;
+}
+
+.page-nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.page-nav-item {
+  border-left: 3px solid transparent;
+  padding: 6px 0 6px 12px;
+  margin-bottom: 2px;
+  transition: border-color 0.15s;
+}
+
+.page-nav-item.active {
+  border-left-color: #d82c27;
+}
+
+.page-nav-item a {
+  color: #333;
+  text-decoration: none;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  display: block;
+}
+
+.page-nav-item.active a,
+.page-nav-item.active span {
+  color: #d82c27;
+  font-weight: 700;
+}
+
+.page-nav-item a:hover {
+  color: #d82c27;
+  text-decoration: underline;
+}
