@@ -21,13 +21,40 @@
 
 @media (width >= 900px) {
   .columns > div {
-    align-items: center;
+    align-items: flex-start;
     flex-direction: unset;
-    gap: 24px;
+    gap: 32px;
   }
 
   .columns > div > div {
     flex: 1;
     order: unset;
+  }
+
+  /* Main content + right sidebar: ~70% / 30% */
+  .columns-2-cols > div > div:first-child {
+    flex: 2.2;
+  }
+
+  .columns-2-cols > div > div:last-child {
+    flex: 1;
+    min-width: 280px;
+    max-width: 380px;
+  }
+
+  /* TOC nav + main content + right sidebar */
+  .columns-3-cols > div > div:first-child {
+    flex: 0 0 200px;
+    max-width: 220px;
+  }
+
+  .columns-3-cols > div > div:nth-child(2) {
+    flex: 2.5;
+  }
+
+  .columns-3-cols > div > div:last-child {
+    flex: 1;
+    min-width: 280px;
+    max-width: 380px;
   }
 }
