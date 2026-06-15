@@ -19,7 +19,7 @@ export default async function decorate(block) {
   nav.className = 'nav-wrapper';
   nav.setAttribute('aria-expanded', 'false');
 
-  // Section 0: CTA bar (MyChart / Request Appointment / Donate)
+  // Section 0: CTA bar (MyChart / Request Appointment / Donate Today)
   const utilSection = sections[0];
   if (utilSection) {
     const utilBar = document.createElement('div');
@@ -27,8 +27,77 @@ export default async function decorate(block) {
     const topList = utilSection.querySelector(':scope > ul');
     if (topList) {
       const ul = document.createElement('ul');
-      topList.querySelectorAll(':scope > li').forEach((li) => {
-        ul.appendChild(li.cloneNode(true));
+      topList.querySelectorAll(':scope > li').forEach((li, idx) => {
+        const cloned = li.cloneNode(true);
+        const link = cloned.querySelector(':scope > a');
+        const desc = cloned.querySelector(':scope > p')?.textContent?.trim();
+        const subItems = [...cloned.querySelectorAll(':scope > ul > li > a')];
+
+        // Remove desc paragraph and sub-list from cloned li — used for dropdown
+        cloned.querySelector(':scope > p')?.remove();
+        cloned.querySelector(':scope > ul')?.remove();
+
+        // MyChart: styled spans + dropdown
+        if (idx === 0) {
+          if (link) {
+            link.innerHTML = '<span class="nav-mychart-my">My</span><span class="nav-mychart-chart">Chart</span>';
+          }
+          if (desc) {
+            const panel = document.createElement('div');
+            panel.className = 'cta-dropdown cta-dropdown--mychart';
+            panel.innerHTML = `<p>${desc}</p>`;
+            cloned.appendChild(panel);
+          }
+        }
+
+        // Request an Appointment: two-column panel
+        if (idx === 1) {
+          const panel = document.createElement('div');
+          panel.className = 'cta-dropdown cta-dropdown--appt';
+          const btnHTML = subItems.map((a) => `<a href="${a.href}"${a.target ? ` target="${a.target}"` : ''} class="cta-appt-btn">${a.textContent.trim()} <i class="cta-arrow">→</i></a>`).join('');
+          panel.innerHTML = `<div class="cta-appt-flex">
+            <div class="cta-appt-left">
+              <div class="cta-appt-heading">Request an Appointment</div>
+              ${desc ? `<p>${desc}</p>` : ''}
+              <a href="https://www.mdanderson.org/about-md-anderson/contact-us/askmdanderson/appointments.html" class="cta-appt-info">Appointment Information <i class="cta-arrow">→</i></a>
+            </div>
+            <div class="cta-appt-actions">${btnHTML}</div>
+          </div>`;
+          cloned.appendChild(panel);
+        }
+
+        // Donate Today: heart icon + campaign panel
+        if (idx === 2) {
+          if (link) {
+            const heartSvg = '<svg class="nav-donate-heart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>';
+            link.innerHTML = `${link.textContent.trim()}${heartSvg}`;
+            link.classList.add('nav-donate-btn');
+          }
+          const panel = document.createElement('div');
+          panel.className = 'cta-dropdown cta-dropdown--donate';
+          panel.innerHTML = `<div class="cta-donate-container">
+            <div class="cta-donate-left">
+              <h3 class="cta-donate-h3">Every Breakthrough<br>Begins With <strong>You</strong></h3>
+              ${desc ? `<p>${desc}</p>` : ''}
+              <a href="https://onlypossiblehere.mdanderson.org/" class="cta-donate-learnmore">Learn more about Only Possible Here <i class="cta-arrow">→</i></a>
+            </div>
+            <div class="cta-donate-right">
+              <a href="${link?.href || 'https://gifts.mdanderson.org/Default.aspx?tsid=37435'}" target="_blank" class="cta-donate-btn-outline">DONATE TODAY <i class="cta-arrow">→</i></a>
+              <img src="https://www.mdanderson.org/content/dam/mdanderson/images/hero-images/Integrated%20Media/OPH_Logo_Horizontal_Reverse.png" alt="Only Possible Here" class="cta-donate-logo">
+            </div>
+          </div>`;
+          cloned.appendChild(panel);
+        }
+
+        // Hover show/hide
+        const panel = cloned.querySelector('.cta-dropdown');
+        if (panel) {
+          cloned.addEventListener('mouseenter', () => panel.classList.add('visible'));
+          cloned.addEventListener('mouseleave', () => panel.classList.remove('visible'));
+          cloned.setAttribute('style', 'position:relative');
+        }
+
+        ul.appendChild(cloned);
       });
       utilBar.appendChild(ul);
     }

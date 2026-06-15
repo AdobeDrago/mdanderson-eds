@@ -18,21 +18,37 @@
   background-color: var(--color-secondary, #3361AD);
 }
 
-.contact-bar-inner {
-  max-width: 1200px;
-  margin: 0 auto;
+/* Use .contact-bar.block .contact-bar-inner (0,3,0) to beat
+   the global .contact-bar.block * (0,2,0) font-family scope rule */
+.contact-bar.block .contact-bar-inner {
+  max-width: none;
+  margin: 0;
   padding: 30px 84px;
   text-align: center;
-  font-family: var(--body-font-family);
-  font-size: 1.3125rem; /* 21px — matches original .appointment-bar */
+  font-family: "Univers LT W01_45 Light", arial, sans-serif;
+  font-size: 1.3125rem;
   font-weight: 400;
   color: #fff;
   line-height: 1.5;
+  /* Vertical centering */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 87px;           /* original .appointment-bar height */
+}
+
+/* Override global p color inside contact bar */
+.contact-bar.block .contact-bar-inner p,
+.contact-bar.block .contact-bar-inner p * {
+  color: #fff;
+  font-family: "Univers LT W01_45 Light", arial, sans-serif;
+  font-size: 1.3125rem;
+  margin: 0;                  /* remove global p margin-bottom:18px */
 }
 
 /* "We're here for you." bold label */
-.contact-bar-inner strong,
-.contact-bar-bold {
+.contact-bar.block .contact-bar-inner strong,
+.contact-bar.block .contact-bar-bold {
   font-family: var(--ui-font-family, "Univers LT W01_65 Bold", arial, sans-serif);
   font-weight: 700;
   color: #fff;

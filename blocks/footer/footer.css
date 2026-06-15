@@ -179,8 +179,10 @@ footer .footer-podcast-icon svg {
   margin-top: 65px;   /* original has 65px gap above footer links */
 }
 
-.footer-logo-wrap {
-  margin-bottom: 32px;
+/* Logo column inside grid */
+.footer-column--logo {
+  display: flex;
+  align-items: flex-start;
 }
 
 .footer-logo img {
@@ -188,10 +190,12 @@ footer .footer-podcast-icon svg {
   width: auto;
 }
 
+/* 5-column grid: logo + Explore + About + Finding Your Way + Get In Touch */
 .footer-columns {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 200px 1fr 1fr 1fr 1.5fr;
   gap: 32px;
+  align-items: start;
 }
 
 .footer-column-heading {
@@ -282,11 +286,14 @@ footer .footer-contact-link:hover {
 
 /* ============================================================
    BAND 3 — Light grey sub-links bar
-   Original .footer-sublinks: pt:30 pb:40 pl:48 pr:48
+   Original .footer-sublinks: pt:30 pb:40 pl:48 pr:48, centered
    ============================================================ */
 .footer-sublinks-band {
   background-color: var(--color-footer-sublinks, #F2F3F4);
   padding: 30px 48px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .footer-sublinks-list {
@@ -297,6 +304,7 @@ footer .footer-contact-link:hover {
   padding: 0;
   gap: 0;
   align-items: center;
+  justify-content: center;    /* horizontal centering */
 }
 
 .footer-sublinks-list li {

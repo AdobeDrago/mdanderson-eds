@@ -172,21 +172,21 @@ export default async function decorate(block) {
     const band = document.createElement('div');
     band.className = 'footer-links-band';
 
-    // Logo
+    // Columns wrapper — logo is first column inside the grid
+    const colsWrap = document.createElement('div');
+    colsWrap.className = 'footer-columns';
+
+    // Logo column — first in grid
     const logoP = sec1.querySelector('p');
     const logoLink = logoP?.querySelector('a');
     if (logoLink) {
-      const logoWrap = document.createElement('div');
-      logoWrap.className = 'footer-logo-wrap';
+      const logoCol = document.createElement('div');
+      logoCol.className = 'footer-column footer-column--logo';
       const logo = logoLink.cloneNode(true);
       logo.className = 'footer-logo';
-      logoWrap.appendChild(logo);
-      band.appendChild(logoWrap);
+      logoCol.appendChild(logo);
+      colsWrap.appendChild(logoCol);
     }
-
-    // Columns
-    const colsWrap = document.createElement('div');
-    colsWrap.className = 'footer-columns';
 
     const uls = [...sec1.querySelectorAll('ul')];
     uls.forEach((ul, colIdx) => {

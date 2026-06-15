@@ -19,6 +19,45 @@
   display: block;
 }
 
+/* ── MOBILE (< 900px): add side padding, hide TOC, stack properly ── */
+@media (width < 900px) {
+  /* Add side padding to sections that have padding:0 set at desktop */
+  .section:has(.outer-cols) > div,
+  .section:has(.breadcrumb) > div,
+  .section:has(.contact-bar) > div {
+    padding: 0 18px;            /* original mobile: ~18px side padding */
+  }
+
+  /* Hide TOC sidebar on mobile */
+  .outer-cols > div > div:first-child {
+    display: none;
+  }
+
+  /* Full width content on mobile — add 18px side padding to prevent edge-to-edge text */
+  .outer-cols > div > div:last-child {
+    width: 100%;
+    padding: 16px 18px 0;       /* 18px side margins so H1/text don't touch edges */
+    box-sizing: border-box;
+  }
+
+  /* inner-cols stacks: article above, right rail below */
+  .inner-cols > div > div:first-child {
+    padding-right: 0;           /* no right padding (parent handles sides) */
+    width: 100%;
+  }
+
+  .inner-cols > div > div:last-child {
+    width: 100%;
+    padding: 0;                 /* parent (outer-cols right col) handles 18px sides */
+    margin-top: 24px;           /* gap between stacked article and right rail */
+  }
+
+  /* Reset inner-cols margin on mobile */
+  .columns.inner-cols {
+    margin-top: 24px;           /* reduced gap on mobile */
+  }
+}
+
 @media (width >= 900px) {
   .columns > div {
     align-items: flex-start;
@@ -48,7 +87,8 @@
   .columns.outer-cols > div > div:last-child {
     flex: 1;
     min-width: 0;
-    padding: 0 18px 0 36px;
+    /* pt:81px = original gap from bc-bottom to H1 (social-share 70px + med-reviewer 10px + 1px) */
+    padding: 81px 18px 0 36px;
     box-sizing: border-box;
   }
 

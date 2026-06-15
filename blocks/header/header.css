@@ -7,22 +7,32 @@ header .nav-wrapper {
   width: 100%;
   z-index: 1000;
   position: relative;
+  padding-top: 40px;   /* offset for fixed CTA bar */
 }
 
 /* ============================================================
    TIER 1 — Black CTA Bar (MyChart / Request Appt / Donate)
+   Fixed at top — always visible while scrolling
+   Original: container is full-width black, UL is position:absolute right-aligned
    ============================================================ */
 .nav-utility-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1001;
   background-color: #000;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 0 24px;
   height: 40px;
-  gap: 0;
+  max-width: 1440px;
+  margin: 0 auto;
+  border-radius: 0 0 15px 0;  /* original: only bottom-right corner — same as Donate Today button */
 }
 
+/* UL is absolutely positioned to the right edge — black bg only shows behind buttons */
 .nav-utility-bar ul {
+  position: absolute;
+  right: 0;
+  top: 0;
   display: flex;
   list-style: none;
   margin: 0;
@@ -39,72 +49,304 @@ header .nav-wrapper {
   align-items: center;
 }
 
+/* No separator between items — original uses none between these styled buttons */
 .nav-utility-bar ul li + li::before {
-  content: '';
-  display: block;
-  width: 1px;
-  height: 16px;
-  background: #555;
-  margin: 0 12px;
+  display: none;
 }
 
+/* Base link/button styles — 14px condensed bold uppercase */
 .nav-utility-bar ul li > a,
 .nav-utility-bar ul li > button {
   color: #fff;
-  font-size: 13px;
+  font-size: 0.875rem;          /* 14px */
+  font-family: var(--nav-font-family, "UniversLTW01-67BoldCn", arial, sans-serif);
+  text-transform: uppercase;
+  letter-spacing: 0;
   text-decoration: none;
   white-space: nowrap;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0;
-  font-family: inherit;
-}
-
-.nav-utility-bar ul li > a:hover,
-.nav-utility-bar ul li > button:hover {
-  text-decoration: underline;
-}
-
-/* MyChart red/white styling */
-.nav-utility-bar ul li:first-child a {
+  padding: 0 20px;
+  height: 100%;
   display: flex;
   align-items: center;
 }
 
-/* Appointment CTA — blue button style */
-.nav-utility-bar ul li:nth-child(2) > a,
-.nav-utility-bar ul li:nth-child(2) > button {
+/* MyChart: 16px, no uppercase — "My" red, "Chart" white bold
+   Use > ul > li to avoid matching nested sub-list items */
+.nav-utility-bar > ul > li:first-child > a {
+  font-size: 1rem;              /* 16px — MyChart slightly larger */
+  text-transform: none;
+  padding: 0 20px;
+  font-family: var(--nav-font-family, "UniversLTW01-67BoldCn", arial, sans-serif);
+}
+
+/* MyChart hover: dark grey background fills button area */
+.nav-utility-bar > ul > li:first-child > a:hover {
+  background-color: #363636;    /* original: rgb(54,54,54) */
+  text-decoration: none;
+}
+
+.nav-mychart-my {
+  color: #ea0118;               /* original: rgb(234, 1, 24) */
+}
+
+.nav-mychart-chart {
+  color: #fff;
+}
+
+/* Appointment CTA — blue, uppercase, 14px */
+.nav-utility-bar > ul > li:nth-child(2) > a,
+.nav-utility-bar > ul > li:nth-child(2) > button {
   background-color: #3361ad;
   color: #fff;
-  padding: 6px 16px;
-  font-size: 13px;
-  border-radius: 0;
-  height: 100%;
-  display: flex;
-  align-items: center;
+  padding: 0 20px;
 }
 
-.nav-utility-bar ul li:nth-child(2) > a:hover,
-.nav-utility-bar ul li:nth-child(2) > button:hover {
-  background-color: #2a4f8a;
+.nav-utility-bar > ul > li:nth-child(2) > a:hover,
+.nav-utility-bar > ul > li:nth-child(2) > button:hover {
+  background-color: #fff;
+  color: #3361ad;
   text-decoration: none;
 }
 
-/* Donation CTA — purple/campaign style */
-.nav-utility-bar ul li:nth-child(3) > a {
+/* Donate Today — purple, uppercase, 14px, heart icon, bottom corners rounded */
+.nav-utility-bar > ul > li:nth-child(3) > a {
   background-color: #614b79;
   color: #fff;
-  padding: 6px 16px;
-  height: 100%;
-  display: flex;
-  align-items: center;
+  padding: 0 16px;
   gap: 6px;
+  border-radius: 0 0 15px 0;    /* only bottom-RIGHT corner rounded */
 }
 
-.nav-utility-bar ul li:nth-child(3) > a:hover {
-  background-color: #4e3c61;
+.nav-utility-bar > ul > li:nth-child(3) > a:hover {
+  background-color: #fff;
+  color: #2b3990;               /* original hover: rgb(43,57,144) */
   text-decoration: none;
+}
+
+/* Heart SVG icon inside Donate button */
+.nav-donate-heart {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;           /* inherits color for hover state */
+  flex-shrink: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Hide CTA bar dropdown sublists */
+.nav-utility-bar > ul > li > ul {
+  display: none;
+}
+
+/* ============================================================
+   CTA Bar Dropdown Panels
+   ============================================================ */
+.cta-dropdown {
+  display: none;
+  position: absolute;
+  top: 40px;                    /* directly below the 40px CTA bar */
+  z-index: 1002;
+  font-family: var(--body-font-family);
+}
+
+.cta-dropdown.visible {
+  display: block;
+}
+
+/* ------ MyChart dropdown ------ */
+.cta-dropdown--mychart {
+  background: #000;
+  color: #fff;
+  width: 280px;
+  padding: 30px;
+  right: 0;
+}
+
+.cta-dropdown--mychart p {
+  color: #fff;
+  margin: 0;
+  font-size: 0.875rem;          /* 14px */
+  font-family: var(--body-font-family);
+  line-height: 1.5;
+}
+
+/* ------ Request an Appointment dropdown ------ */
+.cta-dropdown--appt {
+  background: #3361AD;
+  color: #fff;
+  width: 800px;
+  right: 0;
+}
+
+.cta-appt-flex {
+  display: flex;
+}
+
+.cta-appt-left {
+  flex: 1;
+  padding: 50px 15px 50px 60px;
+  font-family: "Univers LT W01_45 Light", var(--body-font-family), arial, sans-serif;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.cta-appt-heading {
+  font-family: var(--heading-font-family);
+  font-size: 2rem;              /* 32px — matches original .appointmentheader */
+  font-weight: 400;
+  color: #fff;
+  margin: 0 0 20px;
+  line-height: 1.2;
+}
+
+.cta-appt-left p {
+  color: #fff;
+  font-size: 1rem;
+  margin: 0 0 16px;
+  line-height: 1.5;
+}
+
+.cta-appt-info:any-link {
+  color: #fff;
+  font-family: var(--ui-font-family, "Univers LT W01_65 Bold", arial, sans-serif);
+  font-size: 1rem;
+  text-decoration: none;
+  display: inline;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.cta-appt-info:hover {
+  text-decoration: underline;
+  background: none;
+}
+
+.cta-appt-actions {
+  width: 400px;
+  padding: 50px 15px 50px 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.cta-appt-btn:any-link {
+  display: block;
+  border: 2px solid #fff;
+  color: #fff;
+  padding: 18px 27px 18px 20px;
+  text-decoration: none;
+  font-family: var(--ui-font-family, "Univers LT W01_65 Bold", arial, sans-serif);
+  font-size: 1rem;
+  background: transparent;
+  transition: background 0.2s, color 0.2s;
+}
+
+.cta-appt-btn:hover {
+  background: #fff;
+  color: #3361AD;
+  text-decoration: none;
+}
+
+/* ------ Donate Today dropdown ------ */
+.cta-dropdown--donate {
+  background: #4a2b5c;          /* deep purple campaign bg */
+  color: #fff;
+  width: 750px;
+  padding: 40px;
+  right: 0;
+}
+
+.cta-donate-container {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.cta-donate-left {
+  flex: 1;
+  font-family: "Univers LT W01_55 Roman", var(--body-font-family), arial, sans-serif;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.cta-donate-h3 {
+  font-family: "Univers LT W01_55 Roman", var(--body-font-family), arial, sans-serif;
+  font-size: 1.625rem;          /* 26px */
+  font-weight: 400;
+  color: #fff;
+  margin: 0 0 16px;
+  line-height: 1.3;
+}
+
+.cta-donate-left p {
+  color: #fff;
+  font-size: 0.875rem;
+  margin: 0 0 16px;
+  line-height: 1.5;
+}
+
+.cta-donate-learnmore:any-link {
+  color: #fff;
+  font-family: var(--ui-font-family, "Univers LT W01_65 Bold", arial, sans-serif);
+  font-size: 0.875rem;
+  text-decoration: none;
+  display: block;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.cta-donate-learnmore:hover {
+  text-decoration: underline;
+  background: none;
+}
+
+.cta-donate-right {
+  width: 273px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  gap: 20px;
+}
+
+.cta-donate-btn-outline:any-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 2px solid #fff;
+  color: #fff;
+  padding: 12px 16px;
+  text-decoration: none;
+  font-family: var(--nav-font-family, "UniversLTW01-67BoldCn", arial, sans-serif);
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: transparent;
+  transition: background 0.2s, color 0.2s;
+}
+
+.cta-donate-btn-outline:hover {
+  background: #fff;
+  color: #4a2b5c;
+  text-decoration: none;
+}
+
+.cta-donate-logo {
+  max-width: 200px;
+  height: auto;
+  display: block;
+}
+
+/* Arrow icon inside CTA buttons */
+.cta-arrow {
+  font-style: normal;
 }
 
 /* Hide CTA bar sub-lists by default */
@@ -216,97 +458,193 @@ header .nav-wrapper {
 }
 
 /* Language Selector */
+/* Language selector — sits after the brand-links ul, needs its own pipe separator */
 .nav-language-selector {
   position: relative;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
 }
 
-.nav-language-trigger {
-  background: none;
-  border: 1px solid #999;
-  padding: 5px 12px;
-  font-size: 13px;
+/* Pipe separator — MUST match nav-brand-links li::before exactly:
+   color: #bbb, padding: 0 10px, font-size: 13px */
+.nav-language-selector::before {
+  content: '|';
+  color: #bbb;               /* same as .nav-brand-links li + li::before */
+  font-size: 13px;           /* same size */
+  padding: 0 10px;           /* same spacing as other pipes */
+  font-family: var(--body-font-family);
+  font-weight: 400;
+  display: block;
+}
+
+/* LANGUAGES button — exact match to other utility nav links.
+   Use transparent bg + explicit overrides to beat global button { bg: #3361AD } */
+.nav-language-trigger,
+.header.block .nav-language-trigger {
+  background-color: transparent;   /* explicit to beat global button bg rule */
+  background: transparent;
+  border: none;
+  padding: 0 10px;
+  font-size: 16px;
+  font-family: var(--nav-font-family, "UniversLTW01-67BoldCn", arial, sans-serif);
+  font-weight: 400;
+  color: #414042;
   cursor: pointer;
-  color: #444;
-  font-family: inherit;
-  border-radius: 2px;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  white-space: nowrap;
+  border-radius: 0;
+  position: relative;
+  box-shadow: none;
 }
 
-.nav-language-trigger:hover {
-  border-color: #444;
-  color: #000;
+/* Hover — original: text-decoration underline only, transparent bg stays */
+.nav-language-trigger:hover,
+.header.block .nav-language-trigger:hover {
+  text-decoration: underline;
+  color: #414042;
+  background-color: transparent;   /* stay transparent on hover */
+  background: transparent;
 }
 
+/* Dropdown chevron — matches original ::after on the toggle */
+.nav-language-trigger::after {
+  content: '';
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid #414042;
+  margin-left: 5px;
+  vertical-align: middle;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.nav-language-selector.is-open .nav-language-trigger::after {
+  transform: rotate(180deg);
+}
+
+/* Dropdown list — matches original:
+   .mda-nav-utility.desktop .mda-nav-utility-sublist:
+   left:-1px; padding:10px 0 0; border-bottom:1px solid #414042
+   Each li: border-top/left/right: 1px solid #414042
+   Each a: display:block; padding:5px 25px; bg:white
+   Hover: bg: rgb(218,218,218) */
 .nav-language-list {
   display: none;
   position: absolute;
-  top: calc(100% + 4px);
-  right: 0;
-  background: #fff;
-  border: 1px solid #ccc;
+  top: 100%;
+  left: -1px;             /* original: left:-1px */
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #414042;   /* original: border-bottom only on container */
   list-style: none;
   margin: 0;
-  padding: 6px 0;
-  min-width: 120px;
-  box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
-  z-index: 500;
+  padding: 10px 0 0;      /* original: padding:10px 0 0 */
+  min-width: 100%;
+  box-shadow: none;        /* original: no box-shadow */
+  z-index: 1000;           /* above nav bar */
 }
 
-.nav-language-list a {
+/* Each language item — original: border-top/left/right: 1px solid #414042 */
+.nav-language-list li {
+  border-top: 1px solid #414042;
+  border-left: 1px solid #414042;
+  border-right: 1px solid #414042;
+  margin: 0;
+  padding: 0;
+}
+
+/* Each link — original: display:block; padding:5px 25px; bg:white; color:#414042; UPPERCASE */
+.nav-language-list a:any-link {
   display: block;
-  padding: 7px 16px;
-  color: #333;
+  padding: 5px 25px;      /* original: padding:5px 25px */
+  background: #fff;
+  color: #414042;
   text-decoration: none;
-  font-size: 13px;
+  font-size: 1rem;        /* 16px */
+  font-family: var(--nav-font-family, "UniversLTW01-67BoldCn", arial, sans-serif);
+  text-transform: uppercase;
 }
 
+/* Hover — original: background-color: rgb(218,218,218) */
 .nav-language-list a:hover {
-  background-color: #f5f5f5;
-  color: #d82c27;
+  background-color: rgb(218, 218, 218);
+  color: #414042;
+  text-decoration: none;
 }
 
 .nav-language-selector.is-open .nav-language-list {
   display: block;
 }
 
-/* Search */
+/* Search — matches original: input with magnifying glass icon on left, Go button hidden */
 .nav-search {
   flex-shrink: 0;
+  position: relative;
 }
 
 .nav-search-form {
   display: flex;
-  align-items: stretch;
-  border: 1px solid #ccc;
-  overflow: hidden;
-  height: 36px;
+  align-items: center;
+  position: relative;
+  height: 40px;
+}
+
+/* Magnifying glass icon — positioned inside input on the left */
+.nav-search-form::before {
+  content: '';
+  display: block;
+  width: 18px;
+  height: 18px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23414042' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 1;
 }
 
 .nav-search-input {
-  border: none;
-  padding: 0 12px;
-  font-size: 14px;
-  width: 180px;
+  border: 1px solid #414042;   /* original: border 1px solid #414042 */
+  padding: 4px 10px 4px 36px;  /* 36px left padding for the magnifying glass icon */
+  font-size: 1rem;              /* 16px */
+  font-family: var(--body-font-family);
+  color: #605d5d;               /* original: rgb(96, 93, 93) */
+  background: #fff;
+  width: 100px;                 /* original: 100px */
+  height: 40px;
   outline: none;
-  font-family: inherit;
-  color: #333;
+  box-sizing: border-box;
 }
 
+.nav-search-input::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+/* Go button — HIDDEN in original (4×4px, font-size: 0) — match exactly */
 .nav-search-btn {
-  background: #d82c27;
-  color: #fff;
+  position: absolute;
+  font-size: 0;             /* original: font-size 0px — text invisible */
+  width: 4px;
+  height: 4px;
+  overflow: hidden;
+  opacity: 0;
   border: none;
-  padding: 0 16px;
-  font-size: 14px;
+  background: none;
   cursor: pointer;
-  font-family: inherit;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  flex-shrink: 0;
-}
-
-.nav-search-btn:hover {
-  background: #b52420;
+  right: 0;
+  pointer-events: none;    /* prevent accidental clicks on 4px area */
 }
 
 /* Hamburger */
@@ -473,14 +811,18 @@ header .nav-wrapper {
 .nav-panel {
   display: none;
   position: absolute;
-  left: 0;
-  right: 0;
+  /* Break out of body max-width: use 100vw centered with transform */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;                  /* full viewport width — no side gaps */
   top: 100%;
-  background: #f2f2f2;           /* original: rgb(242,242,242) */
+  background: #f2f2f2;
   box-shadow: 0 6px 12px rgb(0 0 0 / 15%);
-  padding: 0 20px;               /* original: panel padding 0 20px */
+  padding: 0 20px;
+  padding-bottom: 0;             /* no bottom padding */
   z-index: 800;
   border-top: none;
+  box-sizing: border-box;
 }
 
 .nav-item.is-open .nav-panel {

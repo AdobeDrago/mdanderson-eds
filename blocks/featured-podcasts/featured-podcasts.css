@@ -1,11 +1,14 @@
 /* Featured Podcasts Block — matches MD Anderson .podcast-container.three-stacked */
 
 .featured-podcasts.block {
-  padding: 0;
+  padding: 35px 20px;           /* original .podcast-container padding: 35px 20px */
   background: transparent;
+  margin-top: 38px;
+  border-top: 1px solid #D0D0CE;    /* original: border-top/bottom 1px solid rgb(208,208,206) */
+  border-bottom: 1px solid #D0D0CE;
 }
 
-/* Cancerwise Podcast logo banner */
+/* Cancerwise Podcast combo image */
 .featured-podcasts-logo {
   width: 100%;
   line-height: 0;
@@ -16,16 +19,18 @@
 .featured-podcasts-logo picture {
   width: 100%;
   display: block;
+  height: auto;
 }
 
-/* "Featured Podcasts" heading */
+/* "Featured Podcasts:" heading — original: .podcast-header 30px Minion 700, pt:10px pb:35px */
 .featured-podcasts-heading {
-  font-size: 1.5rem;
+  font-family: var(--heading-font-family);
+  font-size: 1.875rem;          /* 30px — original .podcast-header fs:30px */
   font-weight: 700;
   color: #000;
-  margin: 10px 0 20px;
-  padding: 0;
-  font-family: var(--heading-font-family);
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 10px 0 35px;         /* original: pt:10px pb:35px */
 }
 
 /* Episode list */
@@ -35,58 +40,79 @@
   padding: 0;
 }
 
+/* Episode item — separated by spacer with mt:35px mb:35px */
 .featured-podcasts-episode {
-  padding: 12px 0;
-  border-bottom: 1px solid #e0e0e0;
+  padding: 0;
+  border: none;
 }
 
-.featured-podcasts-episode:last-child {
-  border-bottom: none;
+/* Spacer between episodes: mt+mb=35px each */
+.featured-podcasts-episode + .featured-podcasts-episode {
+  margin-top: 35px;
+  padding-top: 35px;
+  border-top: none;             /* original .podcast-spacer has no visible border */
 }
 
-/* Episode title */
+/* Episode title — original: .podcast-title 18px Minion 700, mb:15px */
 .featured-podcasts-title {
-  font-size: 1rem;
+  font-family: var(--heading-font-family);
+  font-size: 1.125rem;          /* 18px — original .podcast-title fs:18px */
   font-weight: 700;
   color: #000;
-  margin: 0 0 8px;
+  margin: 0 0 15px;             /* original: mb:15px */
   line-height: 1.4;
 }
 
-/* Listen + Transcript links */
+/* Links container */
 .featured-podcasts-links {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 0;
 }
 
-/* Override EDS button decoration */
+/* CTA buttons — original: .podcast-cta/.podcast-transcript-cta
+   display: inline-block, border: 1px solid #DA291C, pt/pb: 5px, color: #DA291C
+   mb: 10px on listen button, 0 on transcript */
 .featured-podcasts.block .featured-podcasts-link:any-link,
 .featured-podcasts.block a.featured-podcasts-link.button:any-link {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.875rem;
-  color: #DA291C;
-  text-decoration: none;
-  background: none;
-  border: none;
-  padding: 0;
+  display: inline-block;        /* original: inline-block — button-like */
+  font-family: var(--body-font-family);
+  font-size: 0.875rem;          /* 14px — original fs:14px */
   font-weight: 400;
+  color: #DA291C;
+  background: transparent;
+  border: 1px solid #DA291C;    /* original: border-top/bottom 1px solid #DA291C */
+  border-left: none;
+  border-right: none;
+  padding: 5px 0;               /* original: pt:5px pb:5px */
+  margin: 0 0 10px;             /* original: mb:10px on listen button */
+  text-decoration: none;
   letter-spacing: normal;
   text-transform: none;
-  margin: 0;
   white-space: normal;
   line-height: 1.4;
+  border-radius: 0;
+  text-align: left;
+}
+
+/* Transcript button has mb:0 */
+.featured-podcasts.block .featured-podcasts-link:last-child:any-link,
+.featured-podcasts.block a.featured-podcasts-link:last-child.button:any-link {
+  margin-bottom: 0;
 }
 
 .featured-podcasts.block .featured-podcasts-link:hover {
-  text-decoration: underline;
   color: #a81f1b;
-  background: none;
+  border-color: #a81f1b;
+  background: transparent;
+  text-decoration: none;
 }
 
+/* SVG icons — inline before text */
 .featured-podcasts.block .featured-podcasts-link svg {
+  display: inline;
+  vertical-align: middle;
+  margin-right: 4px;
   flex-shrink: 0;
   color: #DA291C;
 }

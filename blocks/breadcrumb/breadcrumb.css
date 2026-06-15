@@ -13,7 +13,7 @@
 .breadcrumb-list {
   list-style: none;
   margin: 0;
-  padding: 22px 25px;
+  padding: 0 25px 22px;   /* top padding removed */
   display: flex;
   align-items: center;
   flex-wrap: wrap;

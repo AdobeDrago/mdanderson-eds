@@ -2,15 +2,29 @@
   width: unset;
   text-align: center;
   max-width: 800px;
-  margin: 16px auto 4px;
+  margin: 35px auto 0;   /* 35px top = original .module.m-bleed pt:35px */
 }
 
 p.embed-caption {
   font-size: 0.85rem;
   color: #555;
   text-align: center;
-  margin: 0 auto 16px;
+  margin: 4px auto 0;    /* small gap below caption — next elem handles top spacing */
   font-style: italic;
+}
+
+/* Infographic image wrapper — block layout, spaced like embed modules */
+p.sidebar-infographic {
+  margin: 35px 0 0;      /* 35px top like original .module.m-bleed pt:35px */
+  padding: 0;
+  line-height: 0;
+}
+
+p.sidebar-infographic picture,
+p.sidebar-infographic img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .embed > div {

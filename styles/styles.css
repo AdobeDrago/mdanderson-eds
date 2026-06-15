@@ -203,10 +203,10 @@ h2 {
 }
 
 h3 {
-  font-size: 26px;
-  font-family: var(--body-font-family);   /* Univers 55 Roman */
-  font-weight: 400;
-  line-height: 1.2;
+  font-size: 21.06px;                     /* original: 21.06px */
+  font-family: var(--heading-font-family); /* Minion Regular — same as h1/h2 */
+  font-weight: 700;                        /* bold like h2 */
+  line-height: 1.3;
   margin-top: 0;
   margin-bottom: 20px;
 }
@@ -366,12 +366,51 @@ main > .section:first-of-type {
   }
 }
 
-/* The 3-column body layout (breadcrumb + columns) matches original 1440px width —
-   no inner max-width constraint, no horizontal padding */
-main > .section.columns-container > div,
-main > .section:has(.breadcrumb) > div {
+/* The 3-column body layout (breadcrumb + outer-cols) matches original 1440px width —
+   no inner max-width constraint, no horizontal padding, no section margins between them */
+main > .section:has(.breadcrumb) > div,
+main > .section:has(.outer-cols) > div,
+main > .section:has(.contact-bar) > div,
+main > .section:has(.end-cancer-cards) > div {
   max-width: none;
   padding: 0;
+}
+
+/* Remove default 40px section margins from breadcrumb and body sections —
+   original has no gap between breadcrumb bar and content below */
+main > .section:has(.breadcrumb) {
+  margin-bottom: 0;
+}
+
+main > .section:has(.outer-cols) {
+  margin-top: 0;
+}
+
+/* Mobile padding for full-bleed sections */
+@media (width < 900px) {
+  main > .section:has(.end-cancer-cards) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  main > .section:has(.end-cancer-cards) > div {
+    padding: 0;
+  }
+
+  /* Section highlight (end cancer) keeps its vertical padding */
+  main .section.highlight {
+    padding: 40px 18px;
+  }
+
+  /* Contact bar full width on mobile */
+  main > .section:has(.contact-bar) > div {
+    padding: 0;
+  }
+
+  /* Breadcrumb side padding on mobile */
+  main > .section:has(.breadcrumb) > div {
+    padding: 0 18px;
+  }
 }
 
 /* section metadata */

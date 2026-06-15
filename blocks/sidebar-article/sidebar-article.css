@@ -2,7 +2,8 @@
 
 .sidebar-article.block {
   border: 1px solid #D0D0CE;
-  margin-bottom: 16px;
+  margin-top: 38px;      /* 38px gap from infographic/prev card — original .module.m-pad gap */
+  margin-bottom: 0;
   overflow: hidden;
   background: transparent;
 }
