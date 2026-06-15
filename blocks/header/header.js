@@ -30,6 +30,10 @@ export default async function decorate(block) {
       topList.querySelectorAll(':scope > li').forEach((li, idx) => {
         const cloned = li.cloneNode(true);
         const link = cloned.querySelector(':scope > a') || cloned.querySelector(':scope > p > a');
+        // DA wraps links in <p>; strip it so CSS li > a selectors apply
+        if (link?.parentElement?.tagName === 'P' && link.parentElement.parentElement === cloned) {
+          link.parentElement.replaceWith(link);
+        }
         const desc = [...cloned.querySelectorAll(':scope > p')].find((p) => !p.querySelector('a'))?.textContent?.trim();
         const subItems = [...cloned.querySelectorAll(':scope > ul > li > a')];
 
