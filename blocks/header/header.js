@@ -29,12 +29,12 @@ export default async function decorate(block) {
       const ul = document.createElement('ul');
       topList.querySelectorAll(':scope > li').forEach((li, idx) => {
         const cloned = li.cloneNode(true);
-        const link = cloned.querySelector(':scope > a');
-        const desc = cloned.querySelector(':scope > p')?.textContent?.trim();
+        const link = cloned.querySelector(':scope > a') || cloned.querySelector(':scope > p > a');
+        const desc = [...cloned.querySelectorAll(':scope > p')].find((p) => !p.querySelector('a'))?.textContent?.trim();
         const subItems = [...cloned.querySelectorAll(':scope > ul > li > a')];
 
         // Remove desc paragraph and sub-list from cloned li — used for dropdown
-        cloned.querySelector(':scope > p')?.remove();
+        [...cloned.querySelectorAll(':scope > p')].find((p) => !p.querySelector('a'))?.remove();
         cloned.querySelector(':scope > ul')?.remove();
 
         // MyChart: styled spans + dropdown
@@ -187,7 +187,7 @@ export default async function decorate(block) {
         const navItem = document.createElement('li');
         navItem.className = 'nav-item';
 
-        const topLink = li.querySelector(':scope > a');
+        const topLink = li.querySelector(':scope > a') || li.querySelector(':scope > p > a');
         if (topLink) {
           const link = topLink.cloneNode(true);
           link.className = 'nav-item-link';
@@ -214,7 +214,7 @@ export default async function decorate(block) {
             const column = document.createElement('div');
             column.className = 'nav-panel-column';
 
-            const colLink = colLi.querySelector(':scope > a');
+            const colLink = colLi.querySelector(':scope > a') || colLi.querySelector(':scope > p > a');
             if (colLink) {
               const heading = document.createElement('a');
               heading.href = colLink.href;
