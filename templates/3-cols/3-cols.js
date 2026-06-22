@@ -43,19 +43,13 @@ export default async function decorate(doc) {
   const centerSections = sections.slice(startIdx, endIdx);
   if (!centerSections.length) return;
 
-  // Load the left nav and right rail fragments in parallel.
-  // `page-nav` is the current key; `pag-nav` is the legacy (typo) key kept for back-compat.
-  const [nav, aside] = await Promise.all([
-    loadColumn(getMetadata('page-nav') || getMetadata('pag-nav')),
-    loadColumn(getMetadata('right-cols')),
-  ]);
-
+  // Build the grid skeleton synchronously so the main article paints in the
+  // correct 3-column layout immediately — without waiting on the side fragments.
   const grid = document.createElement('div');
   grid.className = 'threecol-grid';
 
   const navCol = document.createElement('div');
   navCol.className = 'threecol-nav';
-  navCol.append(...nav);
 
   const mainCol = document.createElement('div');
   mainCol.className = 'threecol-main';
@@ -63,7 +57,6 @@ export default async function decorate(doc) {
 
   const asideCol = document.createElement('div');
   asideCol.className = 'threecol-aside';
-  asideCol.append(...aside);
 
   grid.append(navCol, mainCol, asideCol);
 
@@ -73,4 +66,11 @@ export default async function decorate(doc) {
   } else {
     main.append(grid);
   }
+
+  // Load the left nav and right rail fragments WITHOUT blocking first paint.
+  // The side columns are non-critical (not the LCP element) and the grid track
+  // widths are fixed (240px / 358px), so populating them late causes no layout
+  // shift. `page-nav` is the current metadata key; `pag-nav` is the legacy typo.
+  loadColumn(getMetadata('page-nav') || getMetadata('pag-nav')).then((els) => navCol.append(...els));
+  loadColumn(getMetadata('right-cols')).then((els) => asideCol.append(...els));
 }
