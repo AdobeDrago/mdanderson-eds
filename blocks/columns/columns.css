@@ -87,6 +87,7 @@
   .columns.outer-cols > div > div:last-child {
     flex: 1;
     min-width: 0;
+
     /* pt:81px = original gap from bc-bottom to H1 (social-share 70px + med-reviewer 10px + 1px) */
     padding: 81px 18px 0 36px;
     box-sizing: border-box;

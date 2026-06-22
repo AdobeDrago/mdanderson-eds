@@ -19,20 +19,20 @@
   --color-accent-purple: #614B79;
 
   /* colors — surface & text */
-  --background-color: #ffffff;
+  --background-color: #fff;
   --light-color: #f8f8f8;
   --dark-color: #505050;
-  --text-color: #000000;
+  --text-color: #000;
   --text-body-color: #3A3A3A;
   --text-muted-color: #414042;
   --link-color: #DA291C;        /* original: body links are RED, not blue */
   --link-hover-color: #a81f1b;  /* darker red on hover */
 
   /* colors — navigation & structure */
-  --color-nav-bar: #000000;
-  --color-nav-bar-text: #ffffff;
+  --color-nav-bar: #000;
+  --color-nav-bar-text: #fff;
   --color-nav-highlight: #F2F2F2;
-  --color-footer-bar: #000000;
+  --color-footer-bar: #000;
   --color-footer-sublinks: #F2F3F4;
   --color-highlight: #F2F3F4;
 
@@ -438,6 +438,7 @@ main .section.dark a:any-link {
 }
 
 /* body text uses extracted color */
+
 /* Body paragraphs — inherit Minion Regular from body */
 p {
   color: var(--text-body-color);

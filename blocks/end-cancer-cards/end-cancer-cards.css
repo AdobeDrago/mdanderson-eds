@@ -36,7 +36,7 @@
 
 /* Color variants */
 .end-cancer-card--red   { background-color: #DA291C; }
-.end-cancer-card--black { background-color: #000000; }
+.end-cancer-card--black { background-color: #000; }
 .end-cancer-card--blue  { background-color: #2F60B2; }
 
 /* Title — original: 36px Minion Regular */
@@ -84,9 +84,23 @@
   white-space: normal;
 }
 
-.end-cancer-cards.block .end-cancer-card--red .end-cancer-card-cta:hover   { background: #fff; color: #DA291C; text-decoration: none; }
-.end-cancer-cards.block .end-cancer-card--black .end-cancer-card-cta:hover { background: #fff; color: #000; text-decoration: none; }
-.end-cancer-cards.block .end-cancer-card--blue .end-cancer-card-cta:hover  { background: #fff; color: #2F60B2; text-decoration: none; }
+.end-cancer-cards.block .end-cancer-card--red .end-cancer-card-cta:hover {
+  background: #fff;
+  color: #da291c;
+  text-decoration: none;
+}
+
+.end-cancer-cards.block .end-cancer-card--black .end-cancer-card-cta:hover {
+  background: #fff;
+  color: #000;
+  text-decoration: none;
+}
+
+.end-cancer-cards.block .end-cancer-card--blue .end-cancer-card-cta:hover {
+  background: #fff;
+  color: #2f60b2;
+  text-decoration: none;
+}
 
 /* External link icon inside CTA button */
 .end-cancer-cta-icon {

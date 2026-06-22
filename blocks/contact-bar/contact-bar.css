@@ -30,6 +30,7 @@
   font-weight: 400;
   color: #fff;
   line-height: 1.5;
+
   /* Vertical centering */
   display: flex;
   align-items: center;
@@ -80,7 +81,7 @@
 /* Responsive */
 @media (width < 900px) {
   .contact-bar-inner {
-    padding: 24px 24px;
+    padding: 24px;
     font-size: 1rem;
   }
 }

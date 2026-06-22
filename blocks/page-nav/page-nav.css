@@ -47,6 +47,7 @@
   padding: 8px 20px 10px;
   text-decoration: none;
   line-height: 1.4;
+
   /* Reset global button pollution */
   background: transparent;
   background-color: transparent;
