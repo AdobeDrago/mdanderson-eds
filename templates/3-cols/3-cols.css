@@ -1,0 +1,84 @@
+/* ============================================================
+   3-cols template — flat content + fragment columns.
+   Reproduces the legacy inline `columns outer-cols / inner-cols`
+   layout:  [ page-nav 240px | content 1fr | schedule-cta 358px ]
+   Values mirror blocks/columns/columns.css for visual parity.
+   ============================================================ */
+
+/* Full-bleed grid (matches outer-cols: no max-width, no side padding) */
+body[class~="3-cols"] .threecol-grid {
+  max-width: none;
+  padding: 0;
+}
+
+/* Center column always fills available space */
+body[class~="3-cols"] .threecol-main {
+  min-width: 0;
+}
+
+/* ── MOBILE (< 900px): single column, nav hidden, rail stacks below ── */
+@media (width < 900px) {
+  body[class~="3-cols"] .threecol-nav {
+    display: none;                 /* hide TOC sidebar, like outer-cols mobile */
+  }
+
+  body[class~="3-cols"] .threecol-main {
+    padding: 16px 18px 0;          /* 18px side margins so text doesn't touch edges */
+    box-sizing: border-box;
+  }
+
+  body[class~="3-cols"] .threecol-aside {
+    padding: 0 18px;
+    margin-top: 24px;              /* gap between stacked content and rail */
+    box-sizing: border-box;
+  }
+}
+
+/* ── DESKTOP (>= 900px): 240px | 1fr | 358px grid ── */
+@media (width >= 900px) {
+  body[class~="3-cols"] .threecol-grid {
+    display: grid;
+    grid-template-columns: 240px 1fr 358px;
+    align-items: start;
+  }
+
+  /* Left TOC sidebar (matches outer-cols first child) */
+  body[class~="3-cols"] .threecol-nav {
+    padding: 0 0 0 18px;
+    box-sizing: border-box;
+  }
+
+  /* Center content — pt:81px = legacy gap from breadcrumb bottom to H1;
+     left 36px from the nav; right 24px breathing room to the right rail. */
+  body[class~="3-cols"] .threecol-main {
+    padding: 81px 24px 0 36px;
+    box-sizing: border-box;
+  }
+
+  /* Right rail (matches inner-cols last child), 18px gap to page edge */
+  body[class~="3-cols"] .threecol-aside {
+    padding: 81px 18px 0 0;
+    box-sizing: border-box;
+  }
+
+  /* Sections placed inside the columns carry no default section chrome */
+  body[class~="3-cols"] .threecol-main > .section,
+  body[class~="3-cols"] .threecol-aside > .section {
+    margin: 0;
+  }
+
+  body[class~="3-cols"] .threecol-main > .section > div,
+  body[class~="3-cols"] .threecol-aside > .section > div {
+    max-width: none;
+    padding: 0;
+  }
+
+  /* Legacy 59px gap between H1 and the body text */
+  body[class~="3-cols"] .threecol-main h1 {
+    margin-bottom: 0;
+  }
+
+  body[class~="3-cols"] .threecol-main .default-content-wrapper > h1:first-child {
+    margin-bottom: 59px;
+  }
+}

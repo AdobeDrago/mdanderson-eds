@@ -14,8 +14,7 @@
 export default function decorate(block) {
   const rows = [...block.children];
 
-  // Extract content from rows
-  const iconRow = rows[0]?.querySelector('div');
+  // Extract content from rows (row 0 is the icon keyword — unused, icon is a fixed SVG)
   const headingRow = rows[1]?.querySelector('div');
   const bodyRow = rows[2]?.querySelector('div');
   const phoneRow = rows[3]?.querySelector('div');

@@ -11,7 +11,7 @@
   padding: 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 43px 43px;    /* original: cards spaced ~43px apart (mr: 42.95px on each card) */
+  gap: 43px;    /* original: cards spaced ~43px apart (mr: 42.95px on each card) */
 }
 
 /* Limit to 2 cards (hide 3rd if present) */
@@ -61,7 +61,7 @@
 
 /* Title wrapper — original .blog-summary-wrapper: padding 18px */
 .featured-articles-title-wrapper {
-  padding: 18px 18px 18px 18px;
+  padding: 18px;
   margin: 0;
 }
 

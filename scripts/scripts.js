@@ -17,6 +17,9 @@ import {
   toCamelCase,
 } from './aem.js';
 
+// Origin for DA (Document Authoring) nx plugins, used by scripts/sidekick.js.
+export const NX_ORIGIN = 'https://da.live/nx';
+
 /**
  * Builds hero block and prepends to main in a new section.
  * @param {Element} main The container element
@@ -121,6 +124,36 @@ function decorateSections(main) {
 }
 
 /**
+ * Loads a template's CSS and JS (if present) based on the `template` metadata.
+ * Looks for `/templates/{name}/{name}.css` and `/templates/{name}/{name}.js`.
+ * The JS module's default export is awaited with the document so it can
+ * rearrange the DOM before first paint.
+ * @param {Document} doc The document
+ * @param {string} templateName The template name (already class-normalized)
+ */
+async function loadTemplate(doc, templateName) {
+  try {
+    const cssLoaded = loadCSS(`${window.hlx.codeBasePath}/templates/${templateName}/${templateName}.css`);
+    const decorationComplete = new Promise((resolve) => {
+      (async () => {
+        try {
+          const mod = await import(`${window.hlx.codeBasePath}/templates/${templateName}/${templateName}.js`);
+          if (mod.default) await mod.default(doc);
+        } catch (e) {
+          // eslint-disable-next-line no-console
+          console.log(`failed to load template module for ${templateName}`, e);
+        }
+        resolve();
+      })();
+    });
+    await Promise.all([cssLoaded, decorationComplete]);
+  } catch (e) {
+    // eslint-disable-next-line no-console
+    console.log(`failed to load template ${templateName}`, e);
+  }
+}
+
+/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
@@ -147,6 +180,10 @@ async function loadEager(doc) {
   const main = doc.querySelector('main');
   if (main) {
     decorateMain(main);
+    const templateName = toClassName(getMetadata('template'));
+    if (templateName) {
+      await loadTemplate(doc, templateName);
+    }
     doc.body.classList.add('appear');
     await loadSection(main.querySelector('.section'), waitForFirstImage);
   }
@@ -210,7 +247,6 @@ async function loadLazy(doc) {
   // eslint-disable-next-line import/no-cycle
   if (hasQE) import('../tools/quick-edit/quick-edit.js').then((mod) => mod.default());
 })();
-
 
 /**
  * Loads everything that happens a lot later,

@@ -12,7 +12,7 @@ export default function decorate(block) {
   // Email icon circle
   const iconWrap = document.createElement('div');
   iconWrap.className = 'newsletter-icon';
-  iconWrap.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>`;
+  iconWrap.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>';
   block.appendChild(iconWrap);
 
   // Title
@@ -32,9 +32,15 @@ export default function decorate(block) {
   fieldsWrap.className = 'newsletter-fields';
 
   const fields = [
-    { name: 'tfa_23', placeholder: 'First Name *', type: 'text', autocomplete: 'given-name' },
-    { name: 'tfa_38', placeholder: 'Last Name *', type: 'text', autocomplete: 'family-name' },
-    { name: 'tfa_20', placeholder: 'Email Address *', type: 'email', autocomplete: 'email' },
+    {
+      name: 'tfa_23', placeholder: 'First Name *', type: 'text', autocomplete: 'given-name',
+    },
+    {
+      name: 'tfa_38', placeholder: 'Last Name *', type: 'text', autocomplete: 'family-name',
+    },
+    {
+      name: 'tfa_20', placeholder: 'Email Address *', type: 'email', autocomplete: 'email',
+    },
   ];
 
   fields.forEach((f) => {

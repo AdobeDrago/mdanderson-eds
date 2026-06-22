@@ -1,1 +1,6 @@
 helix-importer-ui
+
+# Third-party experimentation plugin tests/config — import their own devDeps
+# (@playwright/test, monocart-coverage-reports) that aren't root dependencies.
+plugins/experimentation/tests
+plugins/experimentation/playwright.config.js
