@@ -1,0 +1,77 @@
+{
+  "definitions": [
+    {
+      "title": "Featured Articles",
+      "id": "featured-articles",
+      "model": "featured-articles",
+      "filter": "featured-articles",
+      "plugins": {
+        "da": {
+          "rows": 1,
+          "columns": 2
+        }
+      }
+    },
+    {
+      "title": "Featured Article",
+      "id": "featured-article",
+      "model": "featured-article",
+      "plugins": {
+        "da": {
+          "rows": 1,
+          "columns": 2,
+          "fields": [
+            { "name": "image", "selector": "div:nth-child(1)>picture>img[src]" },
+            { "name": "imageAlt", "selector": "div:nth-child(1)>picture>img[alt]" },
+            { "name": "linkText", "selector": "div:nth-child(2) a" },
+            { "name": "link", "selector": "div:nth-child(2) a[href]" }
+          ]
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "featured-articles",
+      "fields": []
+    },
+    {
+      "id": "featured-article",
+      "fields": [
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "image",
+          "label": "Image",
+          "multi": false
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "imageAlt",
+          "label": "Image Alt"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "linkText",
+          "label": "Title"
+        },
+        {
+          "component": "aem-content",
+          "valueType": "string",
+          "name": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "featured-articles",
+      "components": [
+        "featured-article"
+      ]
+    }
+  ]
+}
