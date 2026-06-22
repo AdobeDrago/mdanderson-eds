@@ -13,6 +13,7 @@
       "carousel",
       "columns",
       "embed",
+      "featured-articles",
       "fragment",
       "form",
       "hero",
@@ -59,6 +60,12 @@
     "components": [
       "text",
       "image"
+    ]
+  },
+  {
+    "id": "featured-articles",
+    "components": [
+      "featured-article"
     ]
   },
   {

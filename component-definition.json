@@ -207,6 +207,47 @@
           }
         },
         {
+          "title": "Featured Articles",
+          "id": "featured-articles",
+          "model": "featured-articles",
+          "filter": "featured-articles",
+          "plugins": {
+            "da": {
+              "rows": 1,
+              "columns": 2
+            }
+          }
+        },
+        {
+          "title": "Featured Article",
+          "id": "featured-article",
+          "model": "featured-article",
+          "plugins": {
+            "da": {
+              "rows": 1,
+              "columns": 2,
+              "fields": [
+                {
+                  "name": "image",
+                  "selector": "div:nth-child(1)>picture>img[src]"
+                },
+                {
+                  "name": "imageAlt",
+                  "selector": "div:nth-child(1)>picture>img[alt]"
+                },
+                {
+                  "name": "linkText",
+                  "selector": "div:nth-child(2) a"
+                },
+                {
+                  "name": "link",
+                  "selector": "div:nth-child(2) a[href]"
+                }
+              ]
+            }
+          }
+        },
+        {
           "title": "Fragment",
           "id": "fragment",
           "model": "fragment",
