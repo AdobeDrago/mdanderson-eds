@@ -22,7 +22,7 @@ export default function decorate(block) {
       card.appendChild(h3);
     }
 
-    const body = [...cell.querySelectorAll('p')].find(p => !p.querySelector('a'));
+    const body = [...cell.querySelectorAll('p')].find((p) => !p.querySelector('a'));
     if (body) {
       const p = document.createElement('p');
       p.className = 'end-cancer-card-body';
@@ -30,13 +30,13 @@ export default function decorate(block) {
       card.appendChild(p);
     }
 
-    const ctaP = [...cell.querySelectorAll('p')].find(p => p.querySelector('a'));
+    const ctaP = [...cell.querySelectorAll('p')].find((p) => p.querySelector('a'));
     if (ctaP) {
       const link = ctaP.querySelector('a');
       const a = document.createElement('a');
       a.href = link.href;
       a.className = 'end-cancer-card-cta';
-      a.textContent = link.textContent.trim() + ' ';
+      a.textContent = `${link.textContent.trim()} `;
       if (link.target) a.target = link.target;
 
       // External link icon (replaces mda-icon-linkout from original site)

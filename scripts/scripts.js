@@ -17,6 +17,9 @@ import {
   toCamelCase,
 } from './aem.js';
 
+// Origin for DA (Document Authoring) nx plugins, used by scripts/sidekick.js.
+export const NX_ORIGIN = 'https://da.live/nx';
+
 /**
  * Builds hero block and prepends to main in a new section.
  * @param {Element} main The container element
@@ -244,7 +247,6 @@ async function loadLazy(doc) {
   // eslint-disable-next-line import/no-cycle
   if (hasQE) import('../tools/quick-edit/quick-edit.js').then((mod) => mod.default());
 })();
-
 
 /**
  * Loads everything that happens a lot later,
